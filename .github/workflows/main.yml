@@ -25,7 +25,7 @@ jobs:
     - name: Building project using Makefile
       run: make
     - name: Running tests
-      run: ./my_test
+      run: ./main_test
     - name: Running program
-      run: ./my_program
+      run: ./main
 

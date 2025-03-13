@@ -5,8 +5,6 @@
 CXX = g++
 CXXFLAGS = -Wall -g -Werror -Wpedantic -W
 
-TEST_TARGET = my_test
-TARGET = my_program
 
 TEST_SRC = main_test.cpp
 SRC = main.cpp
@@ -16,7 +14,7 @@ OBJ = $(SRC:.cpp=.o)
 
 GTEST_DIR = /usr/include/gtest
 GTEST_LIB = -lgtest -lgtest_main -pthread
-
+EXECUTABLE = main_test main
 all: $(TEST_TARGET) $(TARGET)
 
 $(TEST_TARGET): $(TEST_OBJ)
