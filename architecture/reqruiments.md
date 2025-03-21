@@ -1,6 +1,38 @@
 # System Requirements and Use Cases
 
-## General Requirements
+## General System Reqruiments
+Operating System
+Ubuntu 20.04 LTS or newer (64-bit)
+(Other Debian-based Linux distributions may work but are not officially supported.)
+
+Compiler & Build Tools
+GCC (GNU Compiler Collection) 9.4.0 or newer
+-or-
+Clang 12.0.0 or newer
+
+C++ Standard: C++17 or newer
+
+Build System: CMake (3.16+) or Make
+
+## Hardware Requirements
+CPU: Dual-core 1.5 GHz or higher
+
+RAM: 512 MB minimum (1 GB recommended)
+
+Terminal:
+
+Supports UTF-8 encoding.
+
+Minimum terminal size: 80x24 characters.
+
+Supports ANSI escape codes for colors (e.g., gnome-terminal, konsole, xterm).
+
+Input
+Keyboard: Standard QWERTY keyboard with arrow keys.
+
+Mouse: Not required
+
+## General Game Requirements
 
 1. The game must support two teams, each consisting of three players.
 2. Each player must have a unique role with corresponding bonuses.
