@@ -27,5 +27,5 @@ jobs:
     - name: Running tests
       run: ./main_test
     - name: Running program
-      run: ./main_program
+      run: ./main
 
