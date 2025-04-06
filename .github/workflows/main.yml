@@ -26,6 +26,4 @@ jobs:
       run: make
     - name: Running tests
       run: ./main_test
-    - name: Running program
-      run: ./main
 
