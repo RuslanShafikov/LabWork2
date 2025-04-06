@@ -1,4 +1,4 @@
-# Assignment 6
+# LabWork2
 # Shafikov Ruslan
 # st112650@student.spbu.ru
 # group 83Б
@@ -17,3 +17,4 @@ keys.json
 /.idea
 *.suo
 *.user
+*.pdf
