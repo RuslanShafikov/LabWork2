@@ -25,7 +25,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="update CI" />
+    <list default="true" id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="update CI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +206,7 @@
       <workItem from="1743752621007" duration="6169000" />
       <workItem from="1743859469987" duration="5653000" />
       <workItem from="1743873801128" duration="571000" />
-      <workItem from="1743951913874" duration="2565000" />
+      <workItem from="1743951913874" duration="3368000" />
     </task>
     <task id="LOCAL-00001" summary="create readme">
       <option name="closed" value="true" />
