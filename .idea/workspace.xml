@@ -25,41 +25,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="update CI">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/Battle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay/Battle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/Battle.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/GameReloader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/GameReloader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/GameReloader.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/Gameplay.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/Gameplay.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay/Gameplay.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Role.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Team/Team.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Team/teamCreator.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Archer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/agility_roles/Archer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Archer.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Assassin.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Doctor.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Monk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/agility_roles/Monk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Monk.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agility_roles/Thief.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Gladiator.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Knight.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Warrior.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/ancherman_roles/Warrior.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Warrior.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/magic_roles/Alchemist.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/magic_roles/Druid.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/magic_roles/Mage.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/magic_roles/Necromancer.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/magic_roles/Shaman.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/magic_roles/Sorcerer.o" beforeDir="false" />
-    </list>
+    <list default="true" id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="update CI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,7 +204,7 @@
       <workItem from="1743752621007" duration="6169000" />
       <workItem from="1743859469987" duration="5653000" />
       <workItem from="1743873801128" duration="571000" />
-      <workItem from="1743951913874" duration="2139000" />
+      <workItem from="1743951913874" duration="2565000" />
     </task>
     <task id="LOCAL-00001" summary="create readme">
       <option name="closed" value="true" />
