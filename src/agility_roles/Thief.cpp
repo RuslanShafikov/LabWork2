@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "../../headers/Thief.h"
+#include "../../headers/Agility_roles/Thief.h"
 #include <random>
 bool Thief::isStolen(){ //@note  can stole opponents moves. Has only one try in 2 moves
     std::random_device rd;

@@ -2,8 +2,8 @@
 
 #ifndef ENCHANTRESS_H
 #define ENCHANTRESS_H
-#include "Role.h"
-#include "Team.h"
+#include "../Team/Role.h"
+#include "../Team/Team.h"
 
 class Enchantress : public Role {
 public:

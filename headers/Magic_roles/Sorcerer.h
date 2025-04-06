@@ -1,7 +1,7 @@
 
 #ifndef SORCERER_H
 #define SORCERER_H
-#include "Role.h"
+#include "../Team/Role.h"
 #include <random>
 
 

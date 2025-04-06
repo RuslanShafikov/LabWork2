@@ -1,5 +1,5 @@
 
-#include "../../headers/Battle.h"
+#include "../../headers/Gameplay/Battle.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>

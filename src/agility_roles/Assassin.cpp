@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "../../headers/Assassin.h"
+#include "../../headers/Agility_roles/Assassin.h"
 void Assassin::assassinate (Role& A) {
     std::random_device rd;
     std::mt19937 gen(rd());
