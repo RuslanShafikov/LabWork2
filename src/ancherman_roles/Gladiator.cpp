@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Gladiator.h"
+#include "../../headers/Gladiator.h"
 #include <random>
 void Gladiator::deathFeeling(Role& A) {
     if (A.getHealth() <= 50) {

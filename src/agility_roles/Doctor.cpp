@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Doctor.h"
+#include "../../headers/Doctor.h"
 
 void Doctor::heal(Role& A) {
     A.setHealth((200-A.getHealth())*0.3);

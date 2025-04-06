@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Knight.h"
+#include "../../headers/Knight.h"
 
 void Knight::splashAttack(Team& T) const {
   std::cout<<"Attack worked"<<std::endl;

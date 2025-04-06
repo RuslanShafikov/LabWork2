@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Monk.h"
+#include "../../headers/Monk.h"
 
 void Monk::amplify(Role& A) {
     A.setCritChance(A.getCritChance() * 2);

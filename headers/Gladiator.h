@@ -1,7 +1,7 @@
 
 #ifndef GLADIATOR_H
 #define GLADIATOR_H
-#include "../Role.h"
+#include "Role.h"
 
 
 class Gladiator : public Role {

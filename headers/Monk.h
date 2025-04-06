@@ -1,7 +1,7 @@
 
 #ifndef MONK_H
 #define MONK_H
-#include "../Role.h"
+#include "Role.h"
 
 class Monk : public Role {
 public:
