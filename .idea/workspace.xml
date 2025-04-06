@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="LabWork2" targetName="main_test" />
+      <config projectName="LabWork2" targetName="all" />
+      <config projectName="LabWork2" targetName="main" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="update CI">
+      <change afterPath="$PROJECT_DIR$/src/Gameplay/Battle.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gameplay/Battle.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gameplay/Gameplay.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gameplay/Gameplay.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Role.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Role.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Team/Team.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Team/Team.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Team/teamCreator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Team/teamCreator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Archer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Archer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Assassin.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Assassin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Doctor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Doctor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Monk.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Monk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Thief.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/agility_roles/Thief.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Gladiator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Gladiator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Knight.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Knight.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Warrior.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Warrior.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Alchemist.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Alchemist.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Druid.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Druid.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Mage.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Mage.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Necromancer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Necromancer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Shaman.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Shaman.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Sorcerer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_roles/Sorcerer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;RuslanShafikov&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;author&quot;: &quot;RuslanShafikov&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RuslanShafikov/LabWork2.git&quot;,
+    &quot;accountId&quot;: &quot;f0da6a80-a12d-4e01-aef0-b5c802438d09&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Team/teamCreator.cpp" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="LabWork2" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="LabWork2" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="3.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2uUhztPC3vmhpfdI2Jxc97AR3u9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Native Application.all.executor&quot;: &quot;Run&quot;,
+    &quot;Native Application.main_test.executor&quot;: &quot;Run&quot;,
+    &quot;Native Application.run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;realize__character&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ruslan/CLionProjects/LabWork2/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/architecture" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/Gameplay" />
+      <recent name="$PROJECT_DIR$/src/Team" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Native Application.all">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LabWork2" TARGET_NAME="main" CONFIG_NAME="main" version="1" RUN_PATH="main">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main_test" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LabWork2" TARGET_NAME="main_test" CONFIG_NAME="main_test" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="run" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LabWork2" TARGET_NAME="run" CONFIG_NAME="run" version="1" RUN_PATH="main">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Native Application.all" />
+      <item itemvalue="Native Application.main_test" />
+      <item itemvalue="Native Application.run" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="" />
+      <created>1742309328797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742309328797</updated>
+      <workItem from="1742309331048" duration="414000" />
+      <workItem from="1742332755653" duration="11000" />
+      <workItem from="1742332798880" duration="1603000" />
+      <workItem from="1742401037590" duration="11520000" />
+      <workItem from="1742469246936" duration="9720000" />
+      <workItem from="1742493808331" duration="1785000" />
+      <workItem from="1742499214293" duration="4380000" />
+      <workItem from="1742545019317" duration="6713000" />
+      <workItem from="1742578935625" duration="3482000" />
+      <workItem from="1742657505396" duration="2878000" />
+      <workItem from="1742747019833" duration="2041000" />
+      <workItem from="1742918157313" duration="8330000" />
+      <workItem from="1742931083470" duration="1646000" />
+      <workItem from="1742998375359" duration="3517000" />
+      <workItem from="1743073371432" duration="5211000" />
+      <workItem from="1743089004930" duration="10366000" />
+      <workItem from="1743106461415" duration="10064000" />
+      <workItem from="1743159021894" duration="4530000" />
+      <workItem from="1743190920987" duration="110000" />
+      <workItem from="1743340288345" duration="111000" />
+      <workItem from="1743615242740" duration="11087000" />
+      <workItem from="1743673249350" duration="12906000" />
+      <workItem from="1743687633265" duration="13799000" />
+      <workItem from="1743710877903" duration="22412000" />
+      <workItem from="1743738937425" duration="541000" />
+      <workItem from="1743741574994" duration="6636000" />
+      <workItem from="1743752621007" duration="6169000" />
+      <workItem from="1743859469987" duration="5653000" />
+      <workItem from="1743873801128" duration="571000" />
+    </task>
+    <task id="LOCAL-00001" summary="create readme">
+      <option name="closed" value="true" />
+      <created>1742333019447</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742333019447</updated>
+    </task>
+    <task id="LOCAL-00002" summary="upload base files to check CI">
+      <option name="closed" value="true" />
+      <created>1742333345407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742333345407</updated>
+    </task>
+    <task id="LOCAL-00003" summary="upload architecture">
+      <option name="closed" value="true" />
+      <created>1742333548376</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742333548376</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update CI">
+      <option name="closed" value="true" />
+      <created>1742333704650</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742333704650</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create readme" />
+    <MESSAGE value="upload base files to check CI" />
+    <MESSAGE value="upload architecture" />
+    <MESSAGE value="update CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="update CI" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/Gameplay/Battle.cpp</url>
+          <line>1</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>6</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/Team/teamCreator.cpp</url>
+          <line>55</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

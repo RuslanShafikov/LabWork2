@@ -1,0 +1,8 @@
+Mage 5 5 7 -76.72 10 0 0 f
+Knight 5 6 5 206 10 0 0 f
+Alchemist 5 5 6 206 10 0 1 f
+12
+Monk 6 5 5 200 10 0 0 f
+Thief 7 5 5 200 10 0 0 f
+Necromancer 5 5 6 101.36 10 0 0 f
+0
