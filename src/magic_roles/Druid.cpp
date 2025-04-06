@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "../../headers/Druid.h"
+#include "../../headers/Magic_roles/Druid.h"
 #include <random>
 bool Druid::hide() {
     std::random_device rd;

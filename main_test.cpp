@@ -5,23 +5,27 @@ st112650@stdudent.spbu.ru
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "src/agility_roles/Archer.h"
-#include "src/agility_roles/Assassin.h"
-#include "src/agility_roles/Doctor.h"
-#include "src/agility_roles/Ecnchantress.h"
-#include "src/agility_roles/Monk.h"
-#include "src/agility_roles/Thief.h"
-#include "src/ancherman_roles/Gladiator.h"
-#include "src/ancherman_roles/Knight.h"
-#include "src/ancherman_roles/Warrior.h"
-#include "src/magic_roles/Alchemist.h"
-#include "src/magic_roles/Druid.h"
-#include "src/magic_roles/Mage.h"
-#include "src/Team/teamCreator.h"
-#include "src/magic_roles/Shaman.h"
-#include "src/magic_roles/Sorcerer.h"
-#include "src/magic_roles/Necromancer.h"
-
+#include "headers/Agility_roles/Archer.h"
+#include "headers/Agility_roles/Assassin.h"
+#include "headers/Agility_roles/Doctor.h"
+#include "headers/Agility_roles/Ecnchantress.h"
+#include "headers/Agility_roles/Monk.h"
+#include "headers/Agility_roles/Thief.h"
+#include "headers/Ancherman_roles/Gladiator.h"
+#include "headers/Ancherman_roles/Knight.h"
+#include "headers/Ancherman_roles/Warrior.h"
+#include "headers/Magic_roles/Alchemist.h"
+#include "headers/Magic_roles/Druid.h"
+#include "headers/Magic_roles/Mage.h"
+#include "headers/Team/teamCreator.h"
+#include "headers/Magic_roles/Shaman.h"
+#include "headers/Magic_roles/Sorcerer.h"
+#include "headers/Magic_roles/Necromancer.h"
+#include "headers/Gameplay/GameReloader.h"
+#include "headers/Gameplay/Battle.h"
+TEST(SimpleTest, EqualityTest) {
+    EXPECT_EQ(2222222222222222, 2222222222222222);
+}
 
 //@note Helper function to count successes in multiple trials (for probability checks)
 template<typename Func>
@@ -74,7 +78,7 @@ TEST(GladiatorTest, DeathFeelingAboveHealthThreshold) {
 
     gladiator.deathFeeling(target);
 
-    EXPECT_EQ(target.getHealth(), initialHealth);
+    EXPECT_EQ(target.getHealth(), initialHealth);  // No change expected
 }
 
 

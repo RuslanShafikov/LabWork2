@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "../../headers/Shaman.h"
+#include "../../headers/Magic_roles/Shaman.h"
 void Shaman::deafen(Role& A){
     std::random_device rd;
     std::mt19937 gen(rd());

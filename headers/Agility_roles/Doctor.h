@@ -1,7 +1,7 @@
 
 #ifndef DOCTOR_H
 #define DOCTOR_H
-#include "Role.h"
+#include "../Team/Role.h"
 
 class Doctor : public Role {
 public:

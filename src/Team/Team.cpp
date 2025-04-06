@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "../../headers/Team.h"
+#include "../../headers/Team/Team.h"
 #include <iostream>
 
 

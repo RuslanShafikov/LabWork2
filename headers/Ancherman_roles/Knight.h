@@ -1,8 +1,8 @@
 
 #ifndef KNIGHT_H
 #define KNIGHT_H
-#include "Role.h"
-#include "Team.h"
+#include "../Team/Role.h"
+#include "../Team/Team.h"
 class Knight  : public Role {
 public:
     RoleType getType() const override ;

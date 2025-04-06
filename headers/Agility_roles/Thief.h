@@ -1,7 +1,7 @@
 
 #ifndef THIEF_H
 #define THIEF_H
-#include "Role.h"
+#include "../Team/Role.h"
 
 class Thief : public Role {
 public:

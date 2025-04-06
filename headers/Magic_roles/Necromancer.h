@@ -1,7 +1,7 @@
 
 #ifndef NECROMANCER_H
 #define NECROMANCER_H
-#include "Role.h"
+#include "../Team/Role.h"
 
 class Necromancer : public Role {
 public:

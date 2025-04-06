@@ -5,33 +5,27 @@ st112650@stdudent.spbu.ru
 
 
 #include <iostream>
-#include "headers/GameReloader.h"
-#include "headers/Role.h"
-#include "headers/Archer.h"
-#include "headers/Assassin.h"
-#include "headers/Doctor.h"
-#include "headers/Ecnchantress.h"
-#include "headers/Monk.h"
-#include "headers/Thief.h"
-#include "headers/Gladiator.h"
-#include "headers/Knight.h"
-#include "headers/Warrior.h"
 #include <vector>
 #include <algorithm>
 #include <cctype>
-#include "headers/Alchemist.h"
-#include "headers/Druid.h"
-#include "headers/Mage.h"
-#include "headers/Necromancer.h"
-#include "headers/Shaman.h"
-#include "headers/Sorcerer.h"
-#include <memory>
-#include "headers/Team.h"
-#include "headers/Battle.h"
-#include <sstream>
-#include "headers/teamCreator.h"
-#include "headers/GameReloader.h"
-
+#include "headers/Agility_roles/Archer.h"
+#include "headers/Agility_roles/Assassin.h"
+#include "headers/Agility_roles/Doctor.h"
+#include "headers/Agility_roles/Ecnchantress.h"
+#include "headers/Agility_roles/Monk.h"
+#include "headers/Agility_roles/Thief.h"
+#include "headers/Ancherman_roles/Gladiator.h"
+#include "headers/Ancherman_roles/Knight.h"
+#include "headers/Ancherman_roles/Warrior.h"
+#include "headers/Magic_roles/Alchemist.h"
+#include "headers/Magic_roles/Druid.h"
+#include "headers/Magic_roles/Mage.h"
+#include "headers/Team/teamCreator.h"
+#include "headers/Magic_roles/Shaman.h"
+#include "headers/Magic_roles/Sorcerer.h"
+#include "headers/Magic_roles/Necromancer.h"
+#include "headers/Gameplay/GameReloader.h"
+#include "headers/Gameplay/Battle.h"
 bool isValidRoleName( std::string& input) {
     const std::vector<std::string> validRoles = {
         "monk", "assassin", "archer", "enchantress", "doctor",

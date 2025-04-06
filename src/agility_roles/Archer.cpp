@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "../../headers/Archer.h"
+#include "../../headers/Agility_roles/Archer.h"
 #include <iostream>
 bool Archer::AdditionalHit() {
     std::random_device rd;
