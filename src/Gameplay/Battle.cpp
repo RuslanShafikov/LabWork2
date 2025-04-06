@@ -355,7 +355,7 @@ void Battle::actionByRole(Role* A, Role* B, std::string & command, Team& my, Tea
         Druid* druid = dynamic_cast<Druid*>(A);
         if (command == "hide") {
 
-            isHidden = druid->hide(); //@ note will hide for the next attack
+            isHidden = druid->hide();
         }
 
         else if (command == "attack") {
@@ -379,7 +379,7 @@ void Battle::actionByRole(Role* A, Role* B, std::string & command, Team& my, Tea
         Mage* mage = dynamic_cast<Mage*>(A);
         if (command == "shield") {
 
-            my.setTeamShield(mage->shield()); // NEEDS TO BE IMPROVED
+            my.setTeamShield(mage->shield());
         }
 
         else if (command == "attack") {
@@ -403,7 +403,7 @@ void Battle::actionByRole(Role* A, Role* B, std::string & command, Team& my, Tea
         Necromancer* necromancer = dynamic_cast<Necromancer*>(A);
         if (command == "arise") {
 
-            necromancer->arise(*B); //@ note will hide for the next attack
+            necromancer->arise(*B);
         }
 
         else if (command == "attack") {
@@ -497,7 +497,7 @@ void Battle::aiAction(Role* A, Team& myTeam, Team& opponentTeam) {
         }
 
         if(auto doctor = dynamic_cast<Doctor*>(A)) {
-            if(dis(gen) < 70 && shouldHeal(A, myTeam)) { // 70% chance to heal
+            if(dis(gen) < 70 && shouldHeal(A, myTeam)) {
                 Role& injured = findMostInjured(myTeam);
                 command = "heal";
                 actionByRole(A, &injured, command, myTeam, opponentTeam, isRepeated, isHidden);

@@ -37,7 +37,7 @@ Archer::Archer(int agility, int strength, int intelligence, double health, int c
     : Role(agility, strength, intelligence, health, critChance, amountOfHealingPotions, amountOfExplosivePotions, poisonousEffect) { }
 RoleType Archer::getType() const { return RoleType::Archer; }
 Role* Archer::clone() const {
-    return new Archer(*this); // Uses the copy constructor
+    return new Archer(*this);
 }
 
 Archer::~Archer() {};

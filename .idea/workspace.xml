@@ -26,52 +26,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d1fd18c-2b5d-4f95-9b06-3e19905c9ec3" name="Changes" comment="update CI">
-      <change afterPath="$PROJECT_DIR$/src/Gameplay/Battle.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gameplay/Battle.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gameplay/Gameplay.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gameplay/Gameplay.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Role.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Role.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Team/Team.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Team/Team.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Team/teamCreator.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Team/teamCreator.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Archer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Archer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Assassin.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Assassin.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Doctor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Doctor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Monk.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Monk.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Thief.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/agility_roles/Thief.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Gladiator.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Gladiator.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Knight.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Knight.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Warrior.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ancherman_roles/Warrior.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Alchemist.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Alchemist.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Druid.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Druid.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Mage.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Mage.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Necromancer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Necromancer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Shaman.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Shaman.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Sorcerer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_roles/Sorcerer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/Battle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay/Battle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/Battle.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/GameReloader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/GameReloader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay/GameReloader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/GameReloader.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/Gameplay.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/Gameplay.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay/Gameplay.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Role.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Team/Team.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Team/teamCreator.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Archer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/agility_roles/Archer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Archer.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Assassin.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Doctor.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Ecnchantress.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Monk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/agility_roles/Monk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Monk.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agility_roles/Thief.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Gladiator.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Knight.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Warrior.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/ancherman_roles/Warrior.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ancherman_roles/Warrior.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_roles/Alchemist.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_roles/Druid.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_roles/Mage.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_roles/Necromancer.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_roles/Shaman.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_roles/Sorcerer.o" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,28 +145,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Native Application.all.executor&quot;: &quot;Run&quot;,
-    &quot;Native Application.main_test.executor&quot;: &quot;Run&quot;,
-    &quot;Native Application.run.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;realize__character&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ruslan/CLionProjects/LabWork2/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Native Application.all.executor": "Run",
+    "Native Application.main_test.executor": "Run",
+    "Native Application.run.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/ruslan/CLionProjects/LabWork2/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -251,6 +238,7 @@
       <workItem from="1743752621007" duration="6169000" />
       <workItem from="1743859469987" duration="5653000" />
       <workItem from="1743873801128" duration="571000" />
+      <workItem from="1743951913874" duration="2139000" />
     </task>
     <task id="LOCAL-00001" summary="create readme">
       <option name="closed" value="true" />

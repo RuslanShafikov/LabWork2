@@ -21,9 +21,7 @@ st112650@stdudent.spbu.ru
 #include "src/magic_roles/Shaman.h"
 #include "src/magic_roles/Sorcerer.h"
 #include "src/magic_roles/Necromancer.h"
-TEST(SimpleTest, EqualityTest) {
-    EXPECT_EQ(2222222222222222, 2222222222222222);
-}
+
 
 //@note Helper function to count successes in multiple trials (for probability checks)
 template<typename Func>
@@ -76,7 +74,7 @@ TEST(GladiatorTest, DeathFeelingAboveHealthThreshold) {
 
     gladiator.deathFeeling(target);
 
-    EXPECT_EQ(target.getHealth(), initialHealth);  // No change expected
+    EXPECT_EQ(target.getHealth(), initialHealth);
 }
 
 

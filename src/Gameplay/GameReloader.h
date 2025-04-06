@@ -5,7 +5,7 @@
 
 #include "../Team/Team.h"
 #include <string>
-#include <utility> // For std::pair
+#include <utility>
 
 class GameReloader {
 public:

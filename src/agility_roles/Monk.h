@@ -9,7 +9,6 @@ public:
      Monk(int agility, int strength, int intelligence, double health, int critChance, int amountOfHealingPotions, int amountOfExplosivePotions, bool poisonousEffect);
     RoleType getType() const override ;
     Role* clone() const override;
-  //  : Role(agility, strength, intelligence, health, critChance, amountOfHealingPotions, amountOfExplosivePotions,poisonousEffect) {
     };
 
 

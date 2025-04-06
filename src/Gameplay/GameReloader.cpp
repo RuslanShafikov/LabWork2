@@ -28,7 +28,6 @@ std::unique_ptr<Role> createGameRole(const std::string& line) {
     double hp;
     std::string isPoisonousStr;
 
-    // Parse and validate input
     if (!(ss >> className >> agi >> str >> intel >> hp >> crit >> heal >> exp >> isPoisonousStr)) {
         throw std::runtime_error("Invalid role data format");
     }

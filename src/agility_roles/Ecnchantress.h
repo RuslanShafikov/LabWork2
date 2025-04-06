@@ -11,6 +11,6 @@ public:
     void deathKissAttack(Role& B);
     RoleType getType() const override ;
     Role* clone() const override;
-Enchantress (int agility, int strength, int intelligence, double health, int critChance, int amountOfHealingPotions, int amountOfExplosivePotions, bool poisonousEffect);  //: Role(agility, strength, intelligence, health, critChance, amountOfHealingPotions, amountOfExplosivePotions, poisonousEffect){}
+Enchantress (int agility, int strength, int intelligence, double health, int critChance, int amountOfHealingPotions, int amountOfExplosivePotions, bool poisonousEffect);
 };
 #endif //ENCHANTRESS_H
