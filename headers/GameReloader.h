@@ -3,7 +3,7 @@
 #define GAMERELOADER_H
 
 
-#include "../Team/Team.h"
+#include "Team.h"
 #include <string>
 #include <utility> // For std::pair
 

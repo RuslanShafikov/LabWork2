@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Mage.h"
+#include "../../headers/Mage.h"
 #include <random>
 
 double Mage::shield(){

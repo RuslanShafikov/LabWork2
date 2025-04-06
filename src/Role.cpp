@@ -1,22 +1,22 @@
-#include "Role.h"
+#include "../headers/Role.h"
 #include <random>
 #include <sstream>
 
-#include "../src/agility_roles/Archer.h"
-#include "../src/agility_roles/Assassin.h"
-#include "../src/agility_roles/Doctor.h"
-#include "../src/agility_roles/Ecnchantress.h"
-#include "../src/agility_roles/Monk.h"
-#include "../src/agility_roles/Thief.h"
-#include "../src/ancherman_roles/Gladiator.h"
-#include "../src/ancherman_roles/Knight.h"
-#include "../src/ancherman_roles/Warrior.h"
-#include "../src/magic_roles/Alchemist.h"
-#include "../src/magic_roles/Druid.h"
-#include "../src/magic_roles/Mage.h"
-#include "../src/magic_roles/Necromancer.h"
-#include "../src/magic_roles/Shaman.h"
-#include "../src/magic_roles/Sorcerer.h"
+#include "../headers/Archer.h"
+#include "../headers/Assassin.h"
+#include "../headers/Doctor.h"
+#include "../headers/Ecnchantress.h"
+#include "../headers/Monk.h"
+#include "../headers/Thief.h"
+#include "../headers/Gladiator.h"
+#include "../headers/Knight.h"
+#include "../headers/Warrior.h"
+#include "../headers/Alchemist.h"
+#include "../headers/Druid.h"
+#include "../headers/Mage.h"
+#include "../headers/Necromancer.h"
+#include "../headers/Shaman.h"
+#include "../headers/Sorcerer.h"
 Role::Role(const Role& other): agility(other.agility), strength(other.strength), intelligence(other.intelligence), health(other.health), critChance(other.critChance), amountOfHealingPotions(other.amountOfHealingPotions), amountOfExplosivePotions(other.amountOfExplosivePotions) {}
 
 Role::Role(Role&& other) noexcept

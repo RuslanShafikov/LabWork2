@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Warrior.h"
+#include "../../headers/Warrior.h"
 #include "random"
 void Warrior::lastBreathAttack(Role& A){ //while not dead
   if(this->getHealth()<50){

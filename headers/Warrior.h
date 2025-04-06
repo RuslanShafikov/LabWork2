@@ -2,7 +2,7 @@
 #ifndef WARRIOR_H
 #define WARRIOR_H
 
-#include "../Role.h"
+#include "Role.h"
 
 class Warrior : public Role {
 public:

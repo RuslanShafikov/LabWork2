@@ -1,7 +1,7 @@
 
 #ifndef MAGE_H
 #define MAGE_H
-#include "../Role.h"
+#include "Role.h"
 class Mage : public Role {
 public:
    RoleType getType() const override ;

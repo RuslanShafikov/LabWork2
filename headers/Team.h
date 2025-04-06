@@ -1,7 +1,7 @@
 #ifndef TEAM_H
 #define TEAM_H
 
-#include "../Role.h"
+#include "Role.h"
 #include <memory>
 
 class Team {

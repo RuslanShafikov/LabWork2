@@ -1,9 +1,8 @@
-// Battle.cpp updated implementation
-#include "Battle.h"
+
+#include "../../headers/Battle.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Battle.h"
 #include <random>
 #include <iomanip>
 std::string roleTypeToString(RoleType type) {

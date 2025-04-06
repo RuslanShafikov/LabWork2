@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Thief.h"
+#include "../../headers/Thief.h"
 #include <random>
 bool Thief::isStolen(){ //@note  can stole opponents moves. Has only one try in 2 moves
     std::random_device rd;

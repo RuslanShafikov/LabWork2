@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Necromancer.h"
+#include "../../headers/Necromancer.h"
 
 void Necromancer::arise(Role& A) {
     if (A.getHealth()<=0) {
