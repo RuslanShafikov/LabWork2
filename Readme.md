@@ -4,8 +4,8 @@
 ## Contacts
 st112650@stdudent.spbu.ru
 ## Description
-Simple Game with simple AI
+Simple Game with simple AI. RPG with a lot of unique roles like archer, mage, necromancer etc.
+Join us and get a lot of fun
 ## Run
 Programm automatically using commands:
-./my_test for running tests
-./my_programm for running programm
+./main_test for running tests
