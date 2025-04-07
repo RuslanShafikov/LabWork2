@@ -5,29 +5,26 @@ st112650@stdudent.spbu.ru
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "headers/Agility_roles/Archer.h"
-#include "headers/Agility_roles/Assassin.h"
-#include "headers/Agility_roles/Doctor.h"
-#include "headers/Agility_roles/Ecnchantress.h"
-#include "headers/Agility_roles/Monk.h"
-#include "headers/Agility_roles/Thief.h"
-#include "headers/Ancherman_roles/Gladiator.h"
-#include "headers/Ancherman_roles/Knight.h"
-#include "headers/Ancherman_roles/Warrior.h"
-#include "headers/Magic_roles/Alchemist.h"
-#include "headers/Magic_roles/Druid.h"
-#include "headers/Magic_roles/Mage.h"
-#include "headers/Team/teamCreator.h"
-#include "headers/Magic_roles/Shaman.h"
-#include "headers/Magic_roles/Sorcerer.h"
-#include "headers/Magic_roles/Necromancer.h"
-#include "headers/Gameplay/GameReloader.h"
-#include "headers/Gameplay/Battle.h"
-TEST(SimpleTest, EqualityTest) {
-    EXPECT_EQ(2222222222222222, 2222222222222222);
-}
+#include "../headers/Agility_roles/Archer.h"
+#include "../headers/Agility_roles/Assassin.h"
+#include "../headers/Agility_roles/Doctor.h"
+#include "../headers/Agility_roles/Ecnchantress.h"
+#include "../headers/Agility_roles/Monk.h"
+#include "../headers/Agility_roles/Thief.h"
+#include "../headers/Ancherman_roles/Gladiator.h"
+#include "../headers/Ancherman_roles/Knight.h"
+#include "../headers/Ancherman_roles/Warrior.h"
+#include "../headers/Magic_roles/Alchemist.h"
+#include "../headers/Magic_roles/Druid.h"
+#include "../headers/Magic_roles/Mage.h"
+#include "../headers/Team/teamCreator.h"
+#include "../headers/Magic_roles/Shaman.h"
+#include "../headers/Magic_roles/Sorcerer.h"
+#include "../headers/Magic_roles/Necromancer.h"
+#include "../headers/Gameplay/GameReloader.h"
+#include "../headers/Gameplay/Battle.h"
 
-//@note Helper function to count successes in multiple trials (for probability checks)
+/*
 template<typename Func>
 int countSuccesses(int trials, Func func) {
     int successes = 0;
@@ -36,6 +33,7 @@ int countSuccesses(int trials, Func func) {
     }
     return successes;
 }
+*/
 
 
 
@@ -179,12 +177,12 @@ TEST(AlchemistTest, CreateAndGivePotions) {
     EXPECT_EQ(ally.getAmountOfHealingPotions(), 1);
     EXPECT_EQ(ally.getAmountOfExplosivePotions(), 1);
 }
-
+/*
 int main_test(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     std::cout<<"Checking tests"<<std::endl;
     return RUN_ALL_TESTS();
-}
+} */
 
 
 

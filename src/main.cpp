@@ -8,25 +8,27 @@ st112650@stdudent.spbu.ru
 #include <vector>
 #include <algorithm>
 #include <cctype>
-#include "headers/Agility_roles/Archer.h"
-#include "headers/Agility_roles/Assassin.h"
-#include "headers/Agility_roles/Doctor.h"
-#include "headers/Agility_roles/Ecnchantress.h"
-#include "headers/Agility_roles/Monk.h"
-#include "headers/Agility_roles/Thief.h"
-#include "headers/Ancherman_roles/Gladiator.h"
-#include "headers/Ancherman_roles/Knight.h"
-#include "headers/Ancherman_roles/Warrior.h"
-#include "headers/Magic_roles/Alchemist.h"
-#include "headers/Magic_roles/Druid.h"
-#include "headers/Magic_roles/Mage.h"
-#include "headers/Team/teamCreator.h"
-#include "headers/Magic_roles/Shaman.h"
-#include "headers/Magic_roles/Sorcerer.h"
-#include "headers/Magic_roles/Necromancer.h"
-#include "headers/Gameplay/GameReloader.h"
-#include "headers/Gameplay/Battle.h"
-bool isValidRoleName( std::string& input) {
+#include "../headers/Agility_roles/Archer.h"
+#include "../headers/Agility_roles/Assassin.h"
+#include "../headers/Agility_roles/Doctor.h"
+#include "../headers/Agility_roles/Ecnchantress.h"
+#include "../headers/Agility_roles/Monk.h"
+#include "../headers/Agility_roles/Thief.h"
+#include "../headers/Ancherman_roles/Gladiator.h"
+#include "../headers/Ancherman_roles/Knight.h"
+#include "../headers/Ancherman_roles/Warrior.h"
+#include "../headers/Magic_roles/Alchemist.h"
+#include "../headers/Magic_roles/Druid.h"
+#include "../headers/Magic_roles/Mage.h"
+#include "../headers/Team/teamCreator.h"
+#include "../headers/Magic_roles/Shaman.h"
+#include "../headers/Magic_roles/Sorcerer.h"
+#include "../headers/Magic_roles/Necromancer.h"
+#include "../headers/Gameplay/GameReloader.h"
+#include "../headers/Gameplay/Battle.h"
+
+
+bool isValidRoleName(std::string &input) {
     const std::vector<std::string> validRoles = {
         "monk", "assassin", "archer", "enchantress", "doctor",
         "gladiator", "knight", "thief", "warrior", "alchemist",
@@ -34,7 +36,7 @@ bool isValidRoleName( std::string& input) {
     };
 
     std::string lowerInput;
-    for (char c : input) {
+    for (char c: input) {
         lowerInput += tolower(c);
     }
 
@@ -109,202 +111,189 @@ void displayRoleOptions() {
     std::cout << "   - 20% chance to attack twice\n\n";
 }
 
-int main (int argc, char** argv) {
-    std::string name, isCurr, role1, role2, role3, command ="";
-    std::cout<<"Enter your name"<<std::endl;
-    std::cin>>name;
-    std::cout<<"Do you want to use your current game?"<<std::endl;
+int main(int argc, char **argv) {
+    std::string name, isCurr, role1, role2, role3, command = "";
+    std::cout << "Enter your name" << std::endl;
+    std::cin >> name;
+    std::cout << "Do you want to use your current game?" << std::endl;
     std::cin >> isCurr;
-    if (isCurr=="yes") {
+    if (isCurr == "yes") {
         std::pair<Team, Team> a = GameReloader::readFile("base.txt");
-        std::cout<<"Welcome to the game "<<name<<std::endl;
+        std::cout << "Welcome to the game " << name << std::endl;
         Team teamA = a.first;
         Team teamB = a.second;
         int num = 0;
         Battle battle(teamA, teamB);
         bool isRepeated = true;
         bool isHidden = false;
-        std::cout<<teamA.getA()->getHealth()<<std::endl;
-        std::cout<<teamB.getA()->getHealth()<<std::endl;
+        std::cout << teamA.getA()->getHealth() << std::endl;
+        std::cout << teamB.getA()->getHealth() << std::endl;
         while (!(battle.isTeamDefeated(teamA) || battle.isTeamDefeated(teamB))) {
-            std::cout<<"Move "<<battle.getMoveCount()+1<<std::endl;
-            std::cout<<"Your team current stats"<<std::endl;
+            std::cout << "Move " << battle.getMoveCount() + 1 << std::endl;
+            std::cout << "Your team current stats" << std::endl;
             battle.printTeamInfo(teamA, "teamA");
-            std::cout<<"Your opponent team current stats"<<std::endl;
+            std::cout << "Your opponent team current stats" << std::endl;
             battle.printTeamInfo(teamB, "teamB");
             while (isRepeated) {
                 isRepeated = false;
-                if (teamA.getA()->getHealth()>0) {
-                    std::cout<<"Enter the command for your first team member"<<std::endl;
-                    std::cin>>command;
-                    std::cout<<"Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"<<std::endl;
-                    std::cin>> num;
+                if (teamA.getA()->getHealth() > 0) {
+                    std::cout << "Enter the command for your first team member" << std::endl;
+                    std::cin >> command;
+                    std::cout <<
+                            "Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"
+                            << std::endl;
+                    std::cin >> num;
                     if (num < 1 || num > 6) {
-                        std::cout <<"You lost in numbers!"<<std::endl;
+                        std::cout << "You lost in numbers!" << std::endl;
                         return 1;
                     }
-                    if (num==4) {
+                    if (num == 4) {
                         battle.actionByRole(teamA.getA(), teamB.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==5) {
+                    } else if (num == 5) {
                         battle.actionByRole(teamA.getA(), teamB.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==6) {
+                    } else if (num == 6) {
                         battle.actionByRole(teamA.getA(), teamB.getC(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-
-                    else if (num==1) {
+                    } else if (num == 1) {
                         battle.actionByRole(teamA.getA(), teamA.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==2) {
+                    } else if (num == 2) {
                         battle.actionByRole(teamA.getA(), teamA.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==3) {
+                    } else if (num == 3) {
                         battle.actionByRole(teamA.getA(), teamA.getC(), command, teamA, teamB, isRepeated, isHidden);
                     }
                 }
-                teamA.getA()->setHealth(teamA.getA()->getHealth()+teamA.getTeamShield()/2);
+                teamA.getA()->setHealth(teamA.getA()->getHealth() + teamA.getTeamShield() / 2);
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamA.getB()->getHealth()>0) {
-                    std::cout<<"Enter the command for your second team member"<<std::endl;
-                    std::cin>>command;
-                    std::cout<<"Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"<<std::endl;
-                    std::cin>> num;
+                if (teamA.getB()->getHealth() > 0) {
+                    std::cout << "Enter the command for your second team member" << std::endl;
+                    std::cin >> command;
+                    std::cout <<
+                            "Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"
+                            << std::endl;
+                    std::cin >> num;
                     if (num < 1 || num > 6) {
-                        std::cout <<"You lost in numbers!"<<std::endl;
+                        std::cout << "You lost in numbers!" << std::endl;
                         return 1;
                     }
-                    if (num==4) {
+                    if (num == 4) {
                         battle.actionByRole(teamA.getB(), teamB.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==5) {
+                    } else if (num == 5) {
                         battle.actionByRole(teamA.getB(), teamB.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==6) {
+                    } else if (num == 6) {
                         battle.actionByRole(teamA.getB(), teamB.getC(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-
-                    else if (num==1) {
+                    } else if (num == 1) {
                         battle.actionByRole(teamA.getB(), teamA.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==2) {
+                    } else if (num == 2) {
                         battle.actionByRole(teamA.getB(), teamA.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==3) {
+                    } else if (num == 3) {
                         battle.actionByRole(teamA.getB(), teamA.getC(), command, teamA, teamB, isRepeated, isHidden);
                     }
                 }
-                teamA.getB()->setHealth(teamA.getB()->getHealth()+teamA.getTeamShield()/2);
+                teamA.getB()->setHealth(teamA.getB()->getHealth() + teamA.getTeamShield() / 2);
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamA.getC()->getHealth()>0) {
-                    std::cout<<"Enter the command for your third team member"<<std::endl;
-                    std::cin>>command;
-                    std::cout<<"Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"<<std::endl;
-                    std::cin>> num;
+                if (teamA.getC()->getHealth() > 0) {
+                    std::cout << "Enter the command for your third team member" << std::endl;
+                    std::cin >> command;
+                    std::cout <<
+                            "Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"
+                            << std::endl;
+                    std::cin >> num;
                     if (num < 1 || num > 6) {
-                        std::cout <<"You lost in numbers!"<<std::endl;
+                        std::cout << "You lost in numbers!" << std::endl;
                         return 1;
                     }
-                    if (num==4) {
+                    if (num == 4) {
                         battle.actionByRole(teamA.getC(), teamB.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==5) {
+                    } else if (num == 5) {
                         battle.actionByRole(teamA.getC(), teamB.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==6) {
+                    } else if (num == 6) {
                         battle.actionByRole(teamA.getC(), teamB.getC(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-
-                    else if (num==1) {
+                    } else if (num == 1) {
                         battle.actionByRole(teamA.getC(), teamA.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==2) {
+                    } else if (num == 2) {
                         battle.actionByRole(teamA.getC(), teamA.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==3) {
+                    } else if (num == 3) {
                         battle.actionByRole(teamA.getC(), teamA.getC(), command, teamA, teamB, isRepeated, isHidden);
                     }
                 }
-                teamA.getC()->setHealth(teamA.getC()->getHealth()+teamA.getTeamShield()/2);
+                teamA.getC()->setHealth(teamA.getC()->getHealth() + teamA.getTeamShield() / 2);
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamB.getA()->getHealth()>0) {
+                if (teamB.getA()->getHealth() > 0) {
                     battle.aiAction(teamB.getA(), teamB, teamA);
-                    teamB.getA()->setHealth(teamB.getA()->getHealth()+teamB.getTeamShield()/2);
+                    teamB.getA()->setHealth(teamB.getA()->getHealth() + teamB.getTeamShield() / 2);
                 }
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamB.getB()->getHealth()>0) {
+                if (teamB.getB()->getHealth() > 0) {
                     battle.aiAction(teamB.getB(), teamB, teamA);
-                    teamB.getB()->setHealth(teamB.getB()->getHealth()+teamB.getTeamShield()/2);
+                    teamB.getB()->setHealth(teamB.getB()->getHealth() + teamB.getTeamShield() / 2);
                 }
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamB.getC()->getHealth()>0) {
+                if (teamB.getC()->getHealth() > 0) {
                     battle.aiAction(teamB.getC(), teamB, teamA);
-                    teamB.getC()->setHealth(teamB.getC()->getHealth()+teamB.getTeamShield()/2);
+                    teamB.getC()->setHealth(teamB.getC()->getHealth() + teamB.getTeamShield() / 2);
                 }
             }
             isRepeated = true;
             if (teamA.getA()->getPoisonEffect()) {
-                teamA.getA()->setHealth(teamA.getA()->getHealth()-10.0);
+                teamA.getA()->setHealth(teamA.getA()->getHealth() - 10.0);
             }
             if (teamA.getB()->getPoisonEffect()) {
-                teamA.getB()->setHealth(teamA.getB()->getHealth()-10.0);
+                teamA.getB()->setHealth(teamA.getB()->getHealth() - 10.0);
             }
             if (teamA.getC()->getPoisonEffect()) {
-                teamA.getC()->setHealth(teamA.getC()->getHealth()-10.0);
+                teamA.getC()->setHealth(teamA.getC()->getHealth() - 10.0);
             }
             if (teamB.getA()->getPoisonEffect()) {
-                teamB.getA()->setHealth(teamB.getA()->getHealth()-10.0);
+                teamB.getA()->setHealth(teamB.getA()->getHealth() - 10.0);
             }
             if (teamB.getB()->getPoisonEffect()) {
-                teamB.getB()->setHealth(teamB.getB()->getHealth()-10.0);
+                teamB.getB()->setHealth(teamB.getB()->getHealth() - 10.0);
             }
             if (teamB.getC()->getPoisonEffect()) {
-                teamB.getC()->setHealth(teamB.getC()->getHealth()-10.0);
+                teamB.getC()->setHealth(teamB.getC()->getHealth() - 10.0);
             }
-            battle.setMoveCount(battle.getMoveCount()+1);
+            battle.setMoveCount(battle.getMoveCount() + 1);
 
-            std::cout<<"Do you want to save the current game data"<<std::endl;
-            std::cout<<"Answer yes to save the data"<<std::endl;
+            std::cout << "Do you want to save the current game data" << std::endl;
+            std::cout << "Answer yes to save the data" << std::endl;
             std::cin >> command;
-            if (command=="yes") {
+            if (command == "yes") {
                 try {
                     GameReloader::saveGame(teamA, teamB, "base.txt");
                     std::cout << "Game saved. Thanks!" << std::endl;
                     return 0;
-                } catch (const std::exception& e) {
+                } catch (const std::exception &e) {
                     std::cerr << "Error saving game: " << e.what() << "\n";
                 }
             }
         }
 
-        std::cout<<"Your team current stats"<<std::endl;
+        std::cout << "Your team current stats" << std::endl;
         battle.printTeamInfo(teamA, "teamA");
-        std::cout<<"Your opponent team current stats"<<std::endl;
+        std::cout << "Your opponent team current stats" << std::endl;
         battle.printTeamInfo(teamB, "teamB");
 
         if (battle.isTeamDefeated(teamA)) {
-            std::cout <<"Sorry, you lost("<<std::endl;
-        }
-        else {
-            std::cout <<"Congrats, you WON!"<<std::endl;
+            std::cout << "Sorry, you lost(" << std::endl;
+        } else {
+            std::cout << "Congrats, you WON!" << std::endl;
         }
 
-        std::cout << "Thanks for the Gaming!"<<std::endl;
+        std::cout << "Thanks for the Gaming!" << std::endl;
         const std::vector<std::string> heart = {
             "  ..... .....  ",
             " ............. ",
@@ -320,7 +309,7 @@ int main (int argc, char** argv) {
         };
 
         std::cout << "\n";
-        for (const auto& row : heart) {
+        for (const auto &row: heart) {
             std::cout << row << "\n";
         }
         std::cout << "\n";
@@ -328,36 +317,27 @@ int main (int argc, char** argv) {
     }
 
 
-
-
-
     //@ note the else option
 
 
-
-
-
-
-
-
     else {
-        std::cout<<" Please, choose Team of 3 from following roles using only small letters: "<<std::endl;
+        std::cout << " Please, choose Team of 3 from following roles using only small letters: " << std::endl;
         displayRoleOptions();
         std::cin >> role1;
         while (!isValidRoleName((role1))) {
-            std::cout<<"Please, enter the role in the list, "<< name << std::endl;
+            std::cout << "Please, enter the role in the list, " << name << std::endl;
             std::cin >> role1;
         }
 
         std::cin >> role2;
         while (!isValidRoleName((role2))) {
-            std::cout<<"Please, enter the role in the list, "<< name << std::endl;
+            std::cout << "Please, enter the role in the list, " << name << std::endl;
             std::cin >> role2;
         }
 
         std::cin >> role3;
         while (!isValidRoleName((role3))) {
-            std::cout<<"Please, enter the role in the list, "<< name << std::endl;
+            std::cout << "Please, enter the role in the list, " << name << std::endl;
             std::cin >> role3;
         }
 
@@ -373,190 +353,176 @@ int main (int argc, char** argv) {
         Battle battle(teamA, teamB);
         bool isRepeated = true;
         bool isHidden = false;
-        std::cout<<teamA.getA()->getHealth()<<std::endl;
-        std::cout<<teamB.getA()->getHealth()<<std::endl;
+        std::cout << teamA.getA()->getHealth() << std::endl;
+        std::cout << teamB.getA()->getHealth() << std::endl;
         while (!(battle.isTeamDefeated(teamA) || battle.isTeamDefeated(teamB))) {
-            std::cout<<"Move "<<battle.getMoveCount()+1<<std::endl;
-            std::cout<<"Your team current stats"<<std::endl;
+            std::cout << "Move " << battle.getMoveCount() + 1 << std::endl;
+            std::cout << "Your team current stats" << std::endl;
             battle.printTeamInfo(teamA, "teamA");
-            std::cout<<"Your opponent team current stats"<<std::endl;
+            std::cout << "Your opponent team current stats" << std::endl;
             battle.printTeamInfo(teamB, "teamB");
             while (isRepeated) {
                 isRepeated = false;
-                if (teamA.getA()->getHealth()>0) {
-                    std::cout<<"Enter the command for your first team member"<<std::endl;
-                    std::cin>>command;
-                    std::cout<<"Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"<<std::endl;
-                    std::cin>> num;
+                if (teamA.getA()->getHealth() > 0) {
+                    std::cout << "Enter the command for your first team member" << std::endl;
+                    std::cin >> command;
+                    std::cout <<
+                            "Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"
+                            << std::endl;
+                    std::cin >> num;
                     if (num < 1 || num > 6) {
-                        std::cout <<"You lost in numbers!"<<std::endl;
+                        std::cout << "You lost in numbers!" << std::endl;
                         return 1;
                     }
-                    if (num==4) {
+                    if (num == 4) {
                         battle.actionByRole(teamA.getA(), teamB.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==5) {
+                    } else if (num == 5) {
                         battle.actionByRole(teamA.getA(), teamB.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==6) {
+                    } else if (num == 6) {
                         battle.actionByRole(teamA.getA(), teamB.getC(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-
-                    else if (num==1) {
+                    } else if (num == 1) {
                         battle.actionByRole(teamA.getA(), teamA.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==2) {
+                    } else if (num == 2) {
                         battle.actionByRole(teamA.getA(), teamA.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==3) {
+                    } else if (num == 3) {
                         battle.actionByRole(teamA.getA(), teamA.getC(), command, teamA, teamB, isRepeated, isHidden);
                     }
                 }
 
-                teamA.getA()->setHealth(teamA.getA()->getHealth()+teamA.getTeamShield()/2);
+                teamA.getA()->setHealth(teamA.getA()->getHealth() + teamA.getTeamShield() / 2);
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamA.getB()->getHealth()>0) {
-                    std::cout<<"Enter the command for your second team member"<<std::endl;
-                    std::cin>>command;
-                    std::cout<<"Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"<<std::endl;
-                    std::cin>> num;
+                if (teamA.getB()->getHealth() > 0) {
+                    std::cout << "Enter the command for your second team member" << std::endl;
+                    std::cin >> command;
+                    std::cout <<
+                            "Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"
+                            << std::endl;
+                    std::cin >> num;
                     if (num < 1 || num > 6) {
-                        std::cout <<"You lost in numbers!"<<std::endl;
+                        std::cout << "You lost in numbers!" << std::endl;
                         return 1;
                     }
-                    if (num==4) {
+                    if (num == 4) {
                         battle.actionByRole(teamA.getB(), teamB.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==5) {
+                    } else if (num == 5) {
                         battle.actionByRole(teamA.getB(), teamB.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==6) {
+                    } else if (num == 6) {
                         battle.actionByRole(teamA.getB(), teamB.getC(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-
-                    else if (num==1) {
+                    } else if (num == 1) {
                         battle.actionByRole(teamA.getB(), teamA.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==2) {
+                    } else if (num == 2) {
                         battle.actionByRole(teamA.getB(), teamA.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==3) {
+                    } else if (num == 3) {
                         battle.actionByRole(teamA.getB(), teamA.getC(), command, teamA, teamB, isRepeated, isHidden);
                     }
                 }
-                teamA.getB()->setHealth(teamA.getB()->getHealth()+teamA.getTeamShield()/2);
+                teamA.getB()->setHealth(teamA.getB()->getHealth() + teamA.getTeamShield() / 2);
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamA.getC()->getHealth()>0) {
-                    std::cout<<"Enter the command for your third team member"<<std::endl;
-                    std::cin>>command;
-                    std::cout<<"Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"<<std::endl;
-                    std::cin>> num;
+                if (teamA.getC()->getHealth() > 0) {
+                    std::cout << "Enter the command for your third team member" << std::endl;
+                    std::cin >> command;
+                    std::cout <<
+                            "Enter the number from 1 to 6 where 1-3 your team members, 4-6 - opponents to perform action"
+                            << std::endl;
+                    std::cin >> num;
                     if (num < 1 || num > 6) {
-                        std::cout <<"You lost in numbers!"<<std::endl;
+                        std::cout << "You lost in numbers!" << std::endl;
                         return 1;
                     }
-                    if (num==4) {
+                    if (num == 4) {
                         battle.actionByRole(teamA.getC(), teamB.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==5) {
+                    } else if (num == 5) {
                         battle.actionByRole(teamA.getC(), teamB.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==6) {
+                    } else if (num == 6) {
                         battle.actionByRole(teamA.getC(), teamB.getC(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-
-                    else if (num==1) {
+                    } else if (num == 1) {
                         battle.actionByRole(teamA.getC(), teamA.getA(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==2) {
+                    } else if (num == 2) {
                         battle.actionByRole(teamA.getC(), teamA.getB(), command, teamA, teamB, isRepeated, isHidden);
-                    }
-                    else if (num==3) {
+                    } else if (num == 3) {
                         battle.actionByRole(teamA.getC(), teamA.getC(), command, teamA, teamB, isRepeated, isHidden);
                     }
                 }
-                teamA.getC()->setHealth(teamA.getC()->getHealth()+teamA.getTeamShield()/2);
+                teamA.getC()->setHealth(teamA.getC()->getHealth() + teamA.getTeamShield() / 2);
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamB.getA()->getHealth()>0) {
+                if (teamB.getA()->getHealth() > 0) {
                     battle.aiAction(teamB.getA(), teamB, teamA);
-                    teamB.getA()->setHealth(teamB.getA()->getHealth()+teamB.getTeamShield()/2);
+                    teamB.getA()->setHealth(teamB.getA()->getHealth() + teamB.getTeamShield() / 2);
                 }
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamB.getB()->getHealth()>0) {
+                if (teamB.getB()->getHealth() > 0) {
                     battle.aiAction(teamB.getB(), teamB, teamA);
-                    teamB.getB()->setHealth(teamB.getB()->getHealth()+teamB.getTeamShield()/2);
+                    teamB.getB()->setHealth(teamB.getB()->getHealth() + teamB.getTeamShield() / 2);
                 }
             }
             isRepeated = true;
             while (isRepeated) {
                 isRepeated = false;
-                if (teamB.getC()->getHealth()>0) {
+                if (teamB.getC()->getHealth() > 0) {
                     battle.aiAction(teamB.getC(), teamB, teamA);
-                    teamB.getC()->setHealth(teamB.getC()->getHealth()+teamB.getTeamShield()/2);
+                    teamB.getC()->setHealth(teamB.getC()->getHealth() + teamB.getTeamShield() / 2);
                 }
             }
             isRepeated = true;
             if (teamA.getA()->getPoisonEffect()) {
-                teamA.getA()->setHealth(teamA.getA()->getHealth()-10.0);
+                teamA.getA()->setHealth(teamA.getA()->getHealth() - 10.0);
             }
             if (teamA.getB()->getPoisonEffect()) {
-                teamA.getB()->setHealth(teamA.getB()->getHealth()-10.0);
+                teamA.getB()->setHealth(teamA.getB()->getHealth() - 10.0);
             }
             if (teamA.getC()->getPoisonEffect()) {
-                teamA.getC()->setHealth(teamA.getC()->getHealth()-10.0);
+                teamA.getC()->setHealth(teamA.getC()->getHealth() - 10.0);
             }
             if (teamB.getA()->getPoisonEffect()) {
-                teamB.getA()->setHealth(teamB.getA()->getHealth()-10.0);
+                teamB.getA()->setHealth(teamB.getA()->getHealth() - 10.0);
             }
             if (teamB.getB()->getPoisonEffect()) {
-                teamB.getB()->setHealth(teamB.getB()->getHealth()-10.0);
+                teamB.getB()->setHealth(teamB.getB()->getHealth() - 10.0);
             }
             if (teamB.getC()->getPoisonEffect()) {
-                teamB.getC()->setHealth(teamB.getC()->getHealth()-10.0);
+                teamB.getC()->setHealth(teamB.getC()->getHealth() - 10.0);
             }
-            battle.setMoveCount(battle.getMoveCount()+1);
+            battle.setMoveCount(battle.getMoveCount() + 1);
 
-            std::cout<<"Do you want to save the current game data"<<std::endl;
-            std::cout<<"Answer yes to save the data"<<std::endl;
+            std::cout << "Do you want to save the current game data" << std::endl;
+            std::cout << "Answer yes to save the data" << std::endl;
             std::cin >> command;
-            if (command=="yes") {
+            if (command == "yes") {
                 try {
                     GameReloader::saveGame(teamA, teamB, "base.txt");
                     std::cout << "Game saved. Thanks!" << std::endl;
                     return 0;
-                } catch (const std::exception& e) {
+                } catch (const std::exception &e) {
                     std::cerr << "Error saving game: " << e.what() << "\n";
                 }
             }
         }
 
-        std::cout<<"Your team current stats"<<std::endl;
+        std::cout << "Your team current stats" << std::endl;
         battle.printTeamInfo(teamA, "teamA");
-        std::cout<<"Your opponent team current stats"<<std::endl;
+        std::cout << "Your opponent team current stats" << std::endl;
         battle.printTeamInfo(teamB, "teamB");
 
         if (battle.isTeamDefeated(teamA)) {
-            std::cout <<"Sorry, you lost("<<std::endl;
+            std::cout << "Sorry, you lost(" << std::endl;
+        } else {
+            std::cout << "Congrats, you WON!" << std::endl;
         }
 
-        else {
-            std::cout <<"Congrats, you WON!"<<std::endl;
-        }
 
-
-        std::cout << "Thanks for the Gaming!"<<std::endl;
+        std::cout << "Thanks for the Gaming!" << std::endl;
         const std::vector<std::string> heart = {
             "  ..... .....  ",
             " ............. ",
@@ -572,12 +538,11 @@ int main (int argc, char** argv) {
         };
 
         std::cout << "\n";
-        for (const auto& row : heart) {
+        for (const auto &row: heart) {
             std::cout << row << "\n";
         }
         std::cout << "\n";
 
         return 0;
-
     }
 }

@@ -28,9 +28,9 @@ class Battle {
     Role& findMostInjured(Team& team);
 
 public:
-    bool isTeamDefeated(Team& team) const;
+    static bool isTeamDefeated(Team& team) ;
     Battle(Team t1, Team t2);
-    int getMoveCount();
+    int getMoveCount() const;
     void setMoveCount(int moveCount_);
     void actionByRole(Role* A, Role* B, std::string& command, Team& my, Team& opponent, bool& isRepeated, bool& isHidden);
     void aiAction(Role* A, Team& myTeam, Team& opponentTeam);
