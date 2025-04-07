@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Mage.h"
+#include "../../headers/Magic_roles/Mage.h"
 #include <random>
 
 double Mage::shield(){

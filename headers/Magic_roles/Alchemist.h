@@ -4,7 +4,7 @@
 
 #ifndef ALCHEMIST_H
 #define ALCHEMIST_H
-#include "../Role.h"
+#include "../Team/Role.h"
 class Alchemist : public Role {
     public:
 

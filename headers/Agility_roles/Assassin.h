@@ -1,7 +1,7 @@
 
 #ifndef ASSASSIN_H
 #define ASSASSIN_H
-#include "../Role.h"
+#include "../Team/Role.h"
 #include <random>
 class Assassin : public Role{
 public:

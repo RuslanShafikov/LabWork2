@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Alchemist.h"
+#include "../../headers/Magic_roles/Alchemist.h"
 
 void Alchemist::createHealingPotion() {
     this->setAmountOfHealingPotions(this->getAmountOfHealingPotions() + 1);

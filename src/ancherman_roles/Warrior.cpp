@@ -2,9 +2,9 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Warrior.h"
+#include "../../headers/Ancherman_roles/Warrior.h"
 #include "random"
-void Warrior::lastBreathAttack(Role& A){ //while not dead
+void Warrior::lastBreathAttack(Role& A){
   if(this->getHealth()<50){
 
     std::random_device rd;

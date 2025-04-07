@@ -1,7 +1,7 @@
 
 #ifndef SHAMAN_H
 #define SHAMAN_H
-#include "../Role.h"
+#include "../Team/Role.h"
 #include <random>
 
 class Shaman : public Role {

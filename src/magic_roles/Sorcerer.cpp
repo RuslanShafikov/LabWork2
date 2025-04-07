@@ -2,7 +2,7 @@
 // Created by ruslan on 3/6/25.
 //
 
-#include "Sorcerer.h"
+#include "../../headers/Magic_roles/Sorcerer.h"
 
 void Sorcerer::doubleMagicAttack(Role& A){
     std::random_device rd;

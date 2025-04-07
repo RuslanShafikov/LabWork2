@@ -1,9 +1,8 @@
-// Battle.cpp updated implementation
-#include "Battle.h"
+
+#include "../../headers/Gameplay/Battle.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Battle.h"
 #include <random>
 #include <iomanip>
 std::string roleTypeToString(RoleType type) {
@@ -32,7 +31,7 @@ Battle::Battle(Team t1, Team t2)
       team2(std::move(t2))
 {}
 
-bool Battle::isTeamDefeated(Team& team) const {
+bool Battle::isTeamDefeated(Team& team) {
     return (team.getA() == nullptr || team.getA()->getHealth() <= 0) &&
            (team.getB() == nullptr || team.getB()->getHealth() <= 0) &&
            (team.getC() == nullptr || team.getC()->getHealth() <= 0);
@@ -82,7 +81,7 @@ void Battle::printTeamInfo(const Team& team, const std::string& teamName) {
 }
 
 
-int Battle::getMoveCount() { return moveCount; }
+int Battle::getMoveCount() const { return moveCount; }
 void Battle::setMoveCount(int moveCount_) { moveCount = moveCount_; }
 void Battle::actionByRole(Role* A, Role* B, std::string & command, Team& my, Team &opponent, bool& isRepeated, bool& isHidden) {
     if (!A || !B) {
@@ -210,7 +209,7 @@ void Battle::actionByRole(Role* A, Role* B, std::string & command, Team& my, Tea
     }
 
     else if(A->getType() == RoleType::Thief) {
-        Thief* thief = dynamic_cast<Thief*>(A);
+        auto thief = dynamic_cast<Thief*>(A);
         if (command == "stole") {
             isRepeated = thief->isStolen();
         }

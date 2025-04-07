@@ -2,7 +2,7 @@
 // Created by ruslan on 3/13/25.
 //
 
-#include "Ecnchantress.h"
+#include "../../headers/Agility_roles/Ecnchantress.h"
 #include <random>
 void Enchantress::charm(Team& B) {
     std::random_device rd;

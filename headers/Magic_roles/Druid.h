@@ -1,7 +1,7 @@
 
 #ifndef DRUID_H
 #define DRUID_H
-#include "../Role.h"
+#include "../Team/Role.h"
 
 class Druid : public Role {
 public:
