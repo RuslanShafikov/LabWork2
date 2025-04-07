@@ -2,35 +2,42 @@
 # Шафиков Руслан Альвиртович, group 24.Б83-мм
 # st112650@stdudent.spbu.ru
 
-CC = clang++
-CFLAGS = -Werror -Wpedantic -Wall -std=c++20
-TEST_LDFLAGS = -lgtest -lgtest_main -lpthread
+CC          := clang++
+CFLAGS      := -Werror -Wpedantic -Wall -std=c++20
+TEST_LDFLAGS:= -lgtest -lgtest_main -lpthread
 
-SOURCE_DIR = src src/agility_roles src/ancherman_roles src/magic_roles src/Gameplay src/Team
-SOURCES = $(wildcard $(patsubst %,%/*.cpp,$(SOURCE_DIR)))
+SOURCE_DIRS := src src/agility_roles src/ancherman_roles src/magic_roles src/Gameplay src/Team
+SOURCES     := $(wildcard $(patsubst %,%/*.cpp,$(SOURCE_DIRS)))
 
-# Objects for main program
-MAIN_SOURCES = $(SOURCES) main.cpp
-MAIN_OBJECTS = $(MAIN_SOURCES:.cpp=.o)
+OBJ_DIR     := build/obj
+OBJ_MAIN    := $(OBJ_DIR)/main
+OBJ_TEST    := $(OBJ_DIR)/test
 
-# Objects for test program
-TEST_SOURCES = $(SOURCES) main_test.cpp
-TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
+MAIN_SRCS   := $(filter-out src/main_test.cpp,$(SOURCES))
+TEST_SRCS   := $(filter-out src/main.cpp,$(SOURCES)) src/main_test.cpp
 
+MAIN_OBJS   := $(patsubst %.cpp,$(OBJ_MAIN)/%.o,$(MAIN_SRCS))
+TEST_OBJS   := $(patsubst %.cpp,$(OBJ_TEST)/%.o,$(TEST_SRCS))
+
+.PHONY: all clean
 all: main main_test
-main: $(MAIN_OBJECTS)
-	$(CC) $(MAIN_OBJECTS) $(CFLAGS) -o $@
 
-main_test: $(TEST_OBJECTS)
-	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(TEST_LDFLAGS) -o $@
+main: $(MAIN_OBJS)
+	$(CC) $^ $(CFLAGS) -o $@
 
-%.o: %.cpp
+main_test: $(TEST_OBJS)
+	$(CC) $^ $(CFLAGS) $(TEST_LDFLAGS) -o $@
+
+$(OBJ_MAIN)/%.o: %.cpp
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: clean all
-clean:
-	rm -rf main main_test $(MAIN_OBJECTS) $(TEST_OBJECTS) *.mk
 
-#run:
-#	./main
+$(OBJ_TEST)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# ---------------------------------------------------------
+clean:
+	rm -rf build main main_test
 
