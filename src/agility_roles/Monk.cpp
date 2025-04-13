@@ -6,7 +6,7 @@
 
 void Monk::amplify(Role& A) {
     A.setCritChance(A.getCritChance() * 2);
-    std::cout<<"AAmplifying worked"<<std::endl;
+    std::cout<<"Amplifying worked"<<std::endl;
 }
 
 

@@ -32,8 +32,8 @@ public:
     Battle(Team t1, Team t2);
     int getMoveCount() const;
     void setMoveCount(int moveCount_);
-    void actionByRole(Role* A, Role* B, std::string& command, Team& my, Team& opponent, bool& isRepeated, bool& isHidden);
-    void aiAction(Role* A, Team& myTeam, Team& opponentTeam);
+    void actionByRole(Role* A, Role* B, std::string& command, std::string & mode, Team& my, Team& opponent, bool& isRepeated, bool& isHidden);
+    void aiAction(Role* A, Team& myTeam, std::string & mode, Team& opponentTeam);
     Role* selectAITarget(Role* attacker, Team& opponentTeam);
     bool shouldHeal(const Role* healer, const Team& team) const;
     void printTeamInfo(const Team& team, const std::string& teamName);

@@ -83,400 +83,784 @@ void Battle::printTeamInfo(const Team& team, const std::string& teamName) {
 
 int Battle::getMoveCount() const { return moveCount; }
 void Battle::setMoveCount(int moveCount_) { moveCount = moveCount_; }
-void Battle::actionByRole(Role* A, Role* B, std::string & command, Team& my, Team &opponent, bool& isRepeated, bool& isHidden) {
+void Battle::actionByRole(Role* A, Role* B, std::string & command, std::string & mode, Team& my, Team &opponent, bool& isRepeated, bool& isHidden) {
     if (!A || !B) {
         std::cout << "Invalid target!" << std::endl;
         return;
     }
-    else if (A->getType() == RoleType::Doctor) {
-        Doctor* doctor = dynamic_cast<Doctor*>(A);
-        if (command == "heal") {
-            doctor->heal(*B);
+    if (mode=="standard") {
+        if (A->getType() == RoleType::Doctor) {
+            Doctor* doctor = dynamic_cast<Doctor*>(A);
+            if (command == "heal") {
+                doctor->heal(*B);
+            }
+
+            else if (command == "attack") {
+                doctor->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                doctor->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                doctor->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                doctor->healFromPoison(*B);
+            }
+
         }
 
-        else if (command == "attack") {
-            doctor->basicAttack(*B);
+        else if(A->getType() == RoleType::Archer) {
+            Archer* archer = dynamic_cast<Archer*>(A);
+            if (command == "poisonAttack") {
+                archer->poisonousArrowAttack(*B);
+            }
+
+            else if (command == "attack") {
+                archer->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                archer->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                archer->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                archer->healFromPoison(*B);
+            }
         }
 
-        else if (command == "giveHealingPotion") {
-            doctor->giveHealingPotion(*B);
+        else if(A->getType() == RoleType::Assassin) {
+            Assassin* assassin = dynamic_cast<Assassin*>(A);
+            if (command == "assassinate") {
+                assassin->assassinate(*B);
+            }
+
+            else if (command == "attack") {
+                assassin->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                assassin->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                assassin->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                assassin->healFromPoison(*B);
+            }
         }
 
-        else if (command == "giveExplosivePotion") {
-            doctor->giveExplosivePotion(*B);
+        else if(A->getType() == RoleType::Enchantress) {
+            Enchantress* enchantress = dynamic_cast<Enchantress*>(A);
+            if (command == "charm") {
+                enchantress->charm(opponent);
+            }
+
+            else if (command =="deathKissAttack") {
+                enchantress->deathKissAttack(*B);
+            }
+
+            else if (command == "attack") {
+                enchantress->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                enchantress->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                enchantress->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                enchantress->healFromPoison(*B);
+            }
         }
 
-        else if (command == "healFromPoison") {
-            doctor->healFromPoison(*B);
+        else if(A->getType() == RoleType::Monk) {
+            Monk* monk = dynamic_cast<Monk*>(A);
+            if (command == "amplify") {
+                monk->amplify(*B);
+            }
+
+            else if (command == "attack") {
+                monk->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                monk->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                monk->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                monk->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Thief) {
+            auto thief = dynamic_cast<Thief*>(A);
+            if (command == "stole") {
+                isRepeated = thief->isStolen();
+            }
+
+            else if (command == "attack") {
+                thief->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                thief->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                thief->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                thief->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Gladiator) {
+            Gladiator* gladiator = dynamic_cast<Gladiator*>(A);
+            if (command == "deathFeelingAttack") {
+                gladiator->deathFeeling(*B);
+            }
+
+            else if (command == "attack") {
+                gladiator->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                gladiator->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                gladiator->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                gladiator->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Gladiator) {
+            Gladiator* gladiator = dynamic_cast<Gladiator*>(A);
+            if (command == "deathFeelingAttack") {
+                gladiator->deathFeeling(*B);
+            }
+
+            else if (command == "attack") {
+                gladiator->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                gladiator->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                gladiator->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                gladiator->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Knight) {
+            Knight* knight = dynamic_cast<Knight*>(A);
+            if (command == "splashAttack") {
+                knight->splashAttack(opponent);
+            }
+
+            else if (command == "attack") {
+                knight->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                knight->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                knight->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                knight->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Warrior) {
+            Warrior* warrior = dynamic_cast<Warrior*>(A);
+            if (command == "lastAttack") {
+                warrior->lastBreathAttack(*B);
+            }
+
+            else if (command == "attack") {
+                warrior->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                warrior->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                warrior->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                warrior->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Alchemist) {
+            Alchemist* alchemist = dynamic_cast<Alchemist*>(A);
+            if (command == "createExplosivePotion") {
+                alchemist->createExplosivePotion();
+            }
+
+            else if (command == "createHealingPotion") {
+                alchemist->createHealingPotion();
+            }
+
+            else if (command == "attack") {
+                alchemist->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                alchemist->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                alchemist->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                alchemist->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Druid) {
+            Druid* druid = dynamic_cast<Druid*>(A);
+            if (command == "hide") {
+
+                isHidden = druid->hide();
+            }
+
+            else if (command == "attack") {
+                druid->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                druid->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                druid->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                druid->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Mage) {
+            Mage* mage = dynamic_cast<Mage*>(A);
+            if (command == "shield") {
+
+                my.setTeamShield(my.getTeamShield()+mage->shield());
+            }
+
+            else if (command == "attack") {
+                mage->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                mage->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                mage->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                mage->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Necromancer) {
+            Necromancer* necromancer = dynamic_cast<Necromancer*>(A);
+            if (command == "arise") {
+
+                necromancer->arise(*B);
+            }
+
+            else if (command == "attack") {
+                necromancer->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                necromancer->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                necromancer->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                necromancer->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Shaman) {
+            Shaman* shaman = dynamic_cast<Shaman*>(A);
+            if (command == "deafen") {
+
+                shaman->deafen(*B);
+            }
+
+            else if (command == "attack") {
+                shaman->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                shaman->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                shaman->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                shaman->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Sorcerer) {
+            Sorcerer* sorcerer = dynamic_cast<Sorcerer*>(A);
+            if (command == "doubleMagicAttack") {
+                sorcerer->doubleMagicAttack(*B);
+            }
+
+            else if (command == "attack") {
+                sorcerer->basicAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                sorcerer->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                sorcerer->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                sorcerer->healFromPoison(*B);
+            }
+        }
+
+        else{
+            std::cout<<"What happened"<<std::endl;
+        }
+    }
+    else {
+        if (A->getType() == RoleType::Doctor) {
+            Doctor* doctor = dynamic_cast<Doctor*>(A);
+            if (command == "heal") {
+                doctor->heal(*B);
+            }
+
+            else if (command == "attack") {
+                doctor->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                doctor->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                doctor->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                doctor->healFromPoison(*B);
+            }
+
+        }
+
+        else if(A->getType() == RoleType::Archer) {
+            Archer* archer = dynamic_cast<Archer*>(A);
+            if (command == "poisonAttack") {
+                archer->poisonousArrowAttack(*B);
+            }
+
+            else if (command == "attack") {
+                archer->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                archer->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                archer->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                archer->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Assassin) {
+            Assassin* assassin = dynamic_cast<Assassin*>(A);
+            if (command == "assassinate") {
+                assassin->assassinate(*B);
+            }
+
+            else if (command == "attack") {
+                assassin->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                assassin->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                assassin->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                assassin->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Enchantress) {
+            Enchantress* enchantress = dynamic_cast<Enchantress*>(A);
+            if (command == "charm") {
+                enchantress->charm(opponent);
+            }
+
+            else if (command =="deathKissAttack") {
+                enchantress->deathKissAttack(*B);
+            }
+
+            else if (command == "attack") {
+                enchantress->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                enchantress->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                enchantress->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                enchantress->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Monk) {
+            Monk* monk = dynamic_cast<Monk*>(A);
+            if (command == "amplify") {
+                monk->amplify(*B);
+            }
+
+            else if (command == "attack") {
+                monk->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                monk->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                monk->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                monk->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Thief) {
+            auto thief = dynamic_cast<Thief*>(A);
+            if (command == "stole") {
+                isRepeated = thief->isStolen();
+            }
+
+            else if (command == "attack") {
+                thief->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                thief->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                thief->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                thief->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Gladiator) {
+            Gladiator* gladiator = dynamic_cast<Gladiator*>(A);
+            if (command == "deathFeelingAttack") {
+                gladiator->deathFeeling(*B);
+            }
+
+            else if (command == "attack") {
+                gladiator->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                gladiator->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                gladiator->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                gladiator->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Gladiator) {
+            Gladiator* gladiator = dynamic_cast<Gladiator*>(A);
+            if (command == "deathFeelingAttack") {
+                gladiator->deathFeeling(*B);
+            }
+
+            else if (command == "attack") {
+                gladiator->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                gladiator->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                gladiator->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                gladiator->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Knight) {
+            Knight* knight = dynamic_cast<Knight*>(A);
+            if (command == "splashAttack") {
+                knight->splashAttack(opponent);
+            }
+
+            else if (command == "attack") {
+                knight->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                knight->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                knight->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                knight->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Warrior) {
+            Warrior* warrior = dynamic_cast<Warrior*>(A);
+            if (command == "lastAttack") {
+                warrior->lastBreathAttack(*B);
+            }
+
+            else if (command == "attack") {
+                warrior->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                warrior->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                warrior->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                warrior->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Alchemist) {
+            Alchemist* alchemist = dynamic_cast<Alchemist*>(A);
+            if (command == "createExplosivePotion") {
+                alchemist->createExplosivePotion();
+            }
+
+            else if (command == "createHealingPotion") {
+                alchemist->createHealingPotion();
+            }
+
+            else if (command == "attack") {
+                alchemist->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                alchemist->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                alchemist->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                alchemist->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Druid) {
+            Druid* druid = dynamic_cast<Druid*>(A);
+            if (command == "hide") {
+
+                isHidden = druid->hide();
+            }
+
+            else if (command == "attack") {
+                druid->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                druid->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                druid->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                druid->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Mage) {
+            Mage* mage = dynamic_cast<Mage*>(A);
+            if (command == "shield") {
+
+                my.setTeamShield( my.getTeamShield()+mage->shield());
+            }
+
+            else if (command == "attack") {
+                mage->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                mage->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                mage->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                mage->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Necromancer) {
+            Necromancer* necromancer = dynamic_cast<Necromancer*>(A);
+            if (command == "arise") {
+
+                necromancer->arise(*B);
+            }
+
+            else if (command == "attack") {
+                necromancer->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                necromancer->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                necromancer->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                necromancer->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Shaman) {
+            Shaman* shaman = dynamic_cast<Shaman*>(A);
+            if (command == "deafen") {
+
+                shaman->deafen(*B);
+            }
+
+            else if (command == "attack") {
+                shaman->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                shaman->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                shaman->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                shaman->healFromPoison(*B);
+            }
+        }
+
+        else if(A->getType() == RoleType::Sorcerer) {
+            Sorcerer* sorcerer = dynamic_cast<Sorcerer*>(A);
+            if (command == "doubleMagicAttack") {
+                sorcerer->doubleMagicAttack(*B);
+            }
+
+            else if (command == "attack") {
+                sorcerer->basicFixedAttack(*B);
+            }
+
+            else if (command == "giveHealingPotion") {
+                sorcerer->giveHealingPotion(*B);
+            }
+
+            else if (command == "giveExplosivePotion") {
+                sorcerer->giveExplosivePotion(*B);
+            }
+
+            else if (command == "healFromPoison") {
+                sorcerer->healFromPoison(*B);
+            }
         }
 
     }
-
-    else if(A->getType() == RoleType::Archer) {
-        Archer* archer = dynamic_cast<Archer*>(A);
-        if (command == "poisonAttack") {
-            archer->poisonousArrowAttack(*B);
-        }
-
-        else if (command == "attack") {
-            archer->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            archer->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            archer->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            archer->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Assassin) {
-        Assassin* assassin = dynamic_cast<Assassin*>(A);
-        if (command == "assassinate") {
-            assassin->assassinate(*B);
-        }
-
-        else if (command == "attack") {
-            assassin->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            assassin->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            assassin->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            assassin->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Enchantress) {
-        Enchantress* enchantress = dynamic_cast<Enchantress*>(A);
-        if (command == "charm") {
-            enchantress->charm(opponent);
-        }
-
-        else if (command =="deathKissAttack") {
-            enchantress->deathKissAttack(*B);
-        }
-
-        else if (command == "attack") {
-            enchantress->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            enchantress->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            enchantress->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            enchantress->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Monk) {
-        Monk* monk = dynamic_cast<Monk*>(A);
-        if (command == "amplify") {
-            monk->amplify(*B);
-        }
-
-        else if (command == "attack") {
-            monk->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            monk->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            monk->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            monk->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Thief) {
-        auto thief = dynamic_cast<Thief*>(A);
-        if (command == "stole") {
-            isRepeated = thief->isStolen();
-        }
-
-        else if (command == "attack") {
-            thief->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            thief->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            thief->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            thief->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Gladiator) {
-        Gladiator* gladiator = dynamic_cast<Gladiator*>(A);
-        if (command == "deathFeelingAttack") {
-            gladiator->deathFeeling(*B);
-        }
-
-        else if (command == "attack") {
-            gladiator->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            gladiator->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            gladiator->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            gladiator->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Gladiator) {
-        Gladiator* gladiator = dynamic_cast<Gladiator*>(A);
-        if (command == "deathFeelingAttack") {
-            gladiator->deathFeeling(*B);
-        }
-
-        else if (command == "attack") {
-            gladiator->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            gladiator->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            gladiator->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            gladiator->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Knight) {
-        Knight* knight = dynamic_cast<Knight*>(A);
-        if (command == "splashAttack") {
-            knight->splashAttack(opponent);
-        }
-
-        else if (command == "attack") {
-           knight->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            knight->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            knight->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            knight->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Warrior) {
-        Warrior* warrior = dynamic_cast<Warrior*>(A);
-        if (command == "lastAttack") {
-            warrior->lastBreathAttack(*B);
-        }
-
-        else if (command == "attack") {
-            warrior->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            warrior->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            warrior->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            warrior->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Alchemist) {
-        Alchemist* alchemist = dynamic_cast<Alchemist*>(A);
-        if (command == "createExplosivePotion") {
-            alchemist->createExplosivePotion();
-        }
-
-        else if (command == "createHealingPotion") {
-            alchemist->createHealingPotion();
-        }
-
-        else if (command == "attack") {
-            alchemist->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            alchemist->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            alchemist->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            alchemist->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Druid) {
-        Druid* druid = dynamic_cast<Druid*>(A);
-        if (command == "hide") {
-
-            isHidden = druid->hide();
-        }
-
-        else if (command == "attack") {
-           druid->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            druid->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            druid->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            druid->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Mage) {
-        Mage* mage = dynamic_cast<Mage*>(A);
-        if (command == "shield") {
-
-            my.setTeamShield(mage->shield());
-        }
-
-        else if (command == "attack") {
-            mage->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            mage->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            mage->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            mage->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Necromancer) {
-        Necromancer* necromancer = dynamic_cast<Necromancer*>(A);
-        if (command == "arise") {
-
-            necromancer->arise(*B);
-        }
-
-        else if (command == "attack") {
-            necromancer->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            necromancer->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            necromancer->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            necromancer->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Shaman) {
-        Shaman* shaman = dynamic_cast<Shaman*>(A);
-        if (command == "deafen") {
-
-            shaman->deafen(*B);
-        }
-
-        else if (command == "attack") {
-            shaman->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            shaman->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            shaman->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            shaman->healFromPoison(*B);
-        }
-    }
-
-    else if(A->getType() == RoleType::Sorcerer) {
-        Sorcerer* sorcerer = dynamic_cast<Sorcerer*>(A);
-        if (command == "doubleMagicAttack") {
-            sorcerer->doubleMagicAttack(*B);
-        }
-
-        else if (command == "attack") {
-            sorcerer->basicAttack(*B);
-        }
-
-        else if (command == "giveHealingPotion") {
-            sorcerer->giveHealingPotion(*B);
-        }
-
-        else if (command == "giveExplosivePotion") {
-            sorcerer->giveExplosivePotion(*B);
-        }
-
-        else if (command == "healFromPoison") {
-            sorcerer->healFromPoison(*B);
-        }
-    }
-
-    else{
-        std::cout<<"What happened"<<std::endl;
 }
 
-}
 
-
-void Battle::aiAction(Role* A, Team& myTeam, Team& opponentTeam) {
+void Battle::aiAction(Role* A, Team& myTeam, std::string & mode, Team& opponentTeam) {
     if(!A || A->getHealth() <= 0) return;
 
     std::random_device rd;
@@ -491,7 +875,7 @@ void Battle::aiAction(Role* A, Team& myTeam, Team& opponentTeam) {
     try {
         if(A->getAmountOfHealingPotions() > 0 && A->getHealth() < 50) {
             command = "healFromPoison";
-            actionByRole(A, A, command, myTeam, opponentTeam, isRepeated, isHidden);
+            actionByRole(A, A, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             return;
         }
 
@@ -499,49 +883,49 @@ void Battle::aiAction(Role* A, Team& myTeam, Team& opponentTeam) {
             if(dis(gen) < 70 && shouldHeal(A, myTeam)) {
                 Role& injured = findMostInjured(myTeam);
                 command = "heal";
-                actionByRole(A, &injured, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, &injured, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             } else {
                 command = "attack";
                 target = selectAITarget(A, opponentTeam);
-                actionByRole(A, target, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, target, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             }
         }
         else if(auto assassin = dynamic_cast<Assassin*>(A)) {
             if(dis(gen) < 40) {
                 command = "assassinate";
                 target = selectAITarget(A, opponentTeam);
-                actionByRole(A, target, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, target, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             } else {
                 command = "attack";
                 target = selectAITarget(A, opponentTeam);
-                actionByRole(A, target, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, target, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             }
         }
         else if(auto mage = dynamic_cast<Mage*>(A)) {
             if(myTeam.getTeamShield() < 20 && dis(gen) < 60) {
                 command = "shield";
-                actionByRole(A, nullptr, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, nullptr, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             } else {
                 command = "attack";
                 target = selectAITarget(A, opponentTeam);
-                actionByRole(A, target, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, target, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             }
         }
         else {
             if(dis(gen) < 20 && A->getAmountOfHealingPotions() > 0) {
                 command = "giveHealingPotion";
                 Role* ally = selectAITarget(A, myTeam);
-                actionByRole(A, ally, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, ally, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             } else {
                 command = "attack";
                 target = selectAITarget(A, opponentTeam);
-                actionByRole(A, target, command, myTeam, opponentTeam, isRepeated, isHidden);
+                actionByRole(A, target, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
             }
         }
     } catch(const std::exception& e) {
         command = "attack";
         target = selectAITarget(A, opponentTeam);
-        actionByRole(A, target, command, myTeam, opponentTeam, isRepeated, isHidden);
+        actionByRole(A, target, command, mode, myTeam, opponentTeam, isRepeated, isHidden);
     }
 }
 
