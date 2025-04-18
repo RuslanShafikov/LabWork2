@@ -1,0 +1,261 @@
+/**
+ * @file Role.h
+ * @brief Defines the Role enum and utility functions for role management.
+ */
+
+#ifndef INC_3_ROLE_H
+#define INC_3_ROLE_H
+
+/**
+ * @enum Role
+ * @brief Represents the role of a team member.
+ */
+enum class Role {
+    Developer,
+    Tester,
+    Manager,
+    Undefined
+};
+
+/**
+ * @brief Converts a string to a Role.
+ *
+ * @param roleStr The role as a string.
+ * @return Role The corresponding Role enum value.
+ */
+Role roleFromString(const std::string& roleStr);
+
+/**
+ * @brief Converts a Role enum to a string.
+ *
+ * @param role The role enum value.
+ * @return std::string The role as a string.
+ */
+std::string roleToString(Role role);
+
+#endif //INC_3_ROLE_H
+
+/**
+ * @file Team.h
+ * @brief Contains the definition for the Team class and associated operations.
+ */
+
+#ifndef INC_3_TEAM_H
+#define INC_3_TEAM_H
+
+#include <string>
+#include <vector>
+#include "Role.h"
+
+/**
+ * @class Team
+ * @brief Represents a team of people with assigned roles.
+ */
+class Team {
+public:
+    /**
+     * @brief Adds a new member to the team.
+     *
+     * @param name The name of the member.
+     * @param role The role assigned to the member.
+     */
+    void addMember(const std::string& name, Role role);
+
+    /**
+     * @brief Prints the team members and their roles.
+     */
+    void printTeam() const;
+
+private:
+    std::vector<std::pair<std::string, Role>> members; ///< Stores pairs of names and their roles.
+};
+
+#endif //INC_3_TEAM_H
+
+# Doxygen Documentation
+
+## Magic Roles
+
+### Alchemist Class
+```doxygen
+/**
+ * @class Alchemist
+ * @brief Specialized role for potion creation and distribution
+ * @inherits Role
+ *
+ * Handles creation and management of healing/explosive potions.
+ */
+class Alchemist : public Role {
+public:
+    /**
+     * @brief Gets the role type
+     * @return RoleType enum value for Alchemist
+     */
+    RoleType getType() const override;
+
+    /**
+     * @brief Creates a deep copy of the Alchemist
+     * @return Pointer to new Alchemist instance
+     */
+    Role* clone() const override;
+
+    /**
+     * @brief Creates one healing potion
+     * @details Increases healing potion count by 1
+     */
+    void createHealingPotion();
+
+    /**
+     * @brief Creates one explosive potion
+     * @details Increases explosive potion count by 1
+     */
+    void createExplosivePotion();
+
+    /**
+     * @brief Constructor for Alchemist
+     * @param agility Movement speed modifier
+     * @param strength Physical damage modifier
+     * @param intelligence Magic damage modifier
+     * @param health Maximum HP
+     * @param critChance Critical hit probability (0-100)
+     * @param amountOfHealingPotions Starting healing potions
+     * @param amountOfExplosivePotions Starting explosive potions
+     * @param poisonousEffect Whether attacks apply poison
+     */
+    explicit Alchemist(int agility, int strength, int intelligence,
+                      double health, int critChance,
+                      int amountOfHealingPotions,
+                      int amountOfExplosivePotions,
+                      bool poisonousEffect);
+};
+
+/**
+ * @class Druid
+ * @brief Nature-themed stealth role
+ * @inherits Role
+ *
+ * Specializes in concealment and evasion.
+ */
+class Druid : public Role {
+public:
+    /**
+     * @brief Attempts to hide from enemies
+     * @return true if hide successful, false otherwise
+     */
+    bool hide();
+};
+
+
+/**
+ * @class Mage
+ * @brief Arcane shield specialist
+ * @inherits Role
+ *
+ * Can generate protective magic barriers.
+ */
+class Mage : public Role {
+public:
+    /**
+     * @brief Generates a magic shield
+     * @return Shield strength value
+     */
+    double shield();
+};
+
+/**
+ * @class Necromancer
+ * @brief Undead-summoning role
+ * @inherits Role
+ *
+ * Can revive defeated allies as temporary minions.
+ */
+class Necromancer : public Role {
+public:
+    /**
+     * @brief Attempts to revive a fallen ally
+     * @param A Reference to target Role
+     */
+    void arise(Role& A);
+};
+
+/**
+ * @class Shaman
+ * @brief Sound-based debuff role
+ * @inherits Role
+ *
+ * Specializes in disabling enemies through auditory attacks.
+ */
+class Shaman : public Role {
+public:
+    /**
+     * @brief Deafens target, reducing accuracy
+     * @param A Reference to target Role
+     */
+    void deafen(Role& A);
+};
+
+
+/**
+ * @class Sorcerer
+ * @brief Burst damage specialist
+ * @inherits Role
+ *
+ * Can deliver powerful double attacks.
+ */
+class Sorcerer : public Role {
+public:
+    /**
+     * @brief Performs two magic attacks simultaneously
+     * @param A Reference to target Role
+     */
+    void doubleMagicAttack(Role& A);
+};
+
+/**
+ * @class Gladiator
+ * @brief Dueling specialist
+ * @inherits Role
+ *
+ * Excels in one-on-one combat situations.
+ */
+class Gladiator : public Role {
+public:
+    /**
+     * @brief Executes a high-risk finishing move
+     * @param A Reference to target Role
+     */
+    void deathFeeling(Role& A);
+};
+
+/**
+ * @class Warrior
+ * @brief Last stand specialist
+ * @inherits Role
+ *
+ * Gains power when near defeat.
+ */
+class Warrior : public Role {
+public:
+    /**
+     * @brief Powerful attack that consumes remaining health
+     * @param A Reference to target Role
+     */
+    void lastBreathAttack(Role& A);
+};
+
+/**
+ * @class Gladiator
+ * @brief Dueling specialist
+ * @inherits Role
+ *
+ * Excels in one-on-one combat situations.
+ */
+class Gladiator : public Role {
+public:
+    /**
+     * @brief Executes a high-risk finishing move
+     * @param A Reference to target Role
+     */
+    void deathFeeling(Role& A);
+};
+
