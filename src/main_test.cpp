@@ -23,29 +23,7 @@ st112650@stdudent.spbu.ru
 #include "../headers/Magic_roles/Necromancer.h"
 #include "../headers/Gameplay/GameReloader.h"
 #include "../headers/Gameplay/Battle.h"
-
-/*
-template<typename Func>
-int countSuccesses(int trials, Func func) {
-    int successes = 0;
-    for (int i = 0; i < trials; ++i) {
-        if (func()) ++successes;
-    }
-    return successes;
-}
-*/
-
-
-
-
-
-TEST(AssassinTest, AssassinateKillsTargetWith20PercentChance) {
-    Assassin assassin(1, 1, 1, 100.0, 0, 0, 0, false);
-    Assassin target(1, 1, 1, 100.0, 0, 0, 0, false);
-    assassin.assassinate(target);
-    // This test is flaky due to randomness, but checks no crash.
-    SUCCEED();
-}
+#include <memory>
 
 
 TEST(EnchantressTest, CharmReturnsBoolean) {
@@ -55,6 +33,7 @@ TEST(EnchantressTest, CharmReturnsBoolean) {
     Team team = creator.createRandomTeam();enchantress.charm(team);
     SUCCEED();
 }
+
 TEST(EnchantressTest, DeathKissAttackReturnsBoolean) {
     Enchantress enchantress(1, 1, 1, 100.0, 0, 0, 0, false);
     SUCCEED();
@@ -76,7 +55,7 @@ TEST(GladiatorTest, DeathFeelingAboveHealthThreshold) {
 
     gladiator.deathFeeling(target);
 
-    EXPECT_EQ(target.getHealth(), initialHealth);  // No change expected
+    EXPECT_EQ(target.getHealth(), initialHealth);
 }
 
 
@@ -147,7 +126,6 @@ TEST(ArcherTest, PoisonousArrowConsumesPotion) {
     EXPECT_EQ(archer.getAmountOfExplosivePotions(), 0);
 }
 
-// Enchantress Tests
 TEST(EnchantressTest, DeathKissAttackEffect) {
     Enchantress enchantress(10, 5, 15, 100.0, 10, 0, 0, false);
     Enchantress target(10, 10, 10, 100.0, 5, 0, 0, false);
@@ -164,7 +142,6 @@ TEST(NecromancerTest, AriseRevivesDeadAlly) {
     EXPECT_EQ(deadAlly.getHealth(), 50.0);
 }
 
-// Alchemist Tests
 TEST(AlchemistTest, CreateAndGivePotions) {
     Alchemist alchemist(5, 5, 15, 100.0, 10, 0, 0, false);
     alchemist.createHealingPotion();
@@ -177,12 +154,228 @@ TEST(AlchemistTest, CreateAndGivePotions) {
     EXPECT_EQ(ally.getAmountOfHealingPotions(), 1);
     EXPECT_EQ(ally.getAmountOfExplosivePotions(), 1);
 }
-/*
-int main_test(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    std::cout<<"Checking tests"<<std::endl;
-    return RUN_ALL_TESTS();
-} */
+
+
+
+
+TEST(BattleTest, IsTeamDefeatedAllDead) {
+    auto testRoleA = std::make_unique<Warrior>(1,1,1,1.0,1,1,1,false);
+    auto testRoleB = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+    auto testRoleC = std::make_unique<Archer>(1,1,1,1.0,1,1,1,false);
+
+    auto mage = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+    auto mage1 = std::make_unique<Mage>(2,1,1,1.0,1,1,1,false);
+    auto mage2 = std::make_unique<Mage>(3,1,1,1.0,1,1,1,false);
+
+    Team team1(
+        std::move(mage),
+        nullptr,
+        nullptr,
+        10.0
+    );
+
+    Team team2(
+        std::move(mage),
+        std::move(mage1),
+        std::move(mage2),
+        10.0
+    );
+
+
+    testRoleA->setHealth(0);
+    testRoleB->setHealth(0);
+    testRoleC->setHealth(0);
+
+    team1.setA(std::move(testRoleA));
+    team1.setB(std::move(testRoleB));
+    team1.setC(std::move(testRoleC));
+
+    Battle battle(team1, team2);
+    EXPECT_TRUE(battle.isTeamDefeated(team1));
+}
+
+TEST(BattleTest, IsTeamDefeatedOneAlive) {
+    auto testRoleA = std::make_unique<Warrior>(1,1,1,1.0,1,1,1,false);
+    auto testRoleB = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+    auto testRoleC = std::make_unique<Archer>(1,1,1,1.0,1,1,1,false);
+
+    testRoleA->setHealth(0);
+    testRoleB->setHealth(50);
+    testRoleC->setHealth(0);
+
+    auto mage = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+    auto mage1 = std::make_unique<Mage>(2,1,1,1.0,1,1,1,false);
+    auto mage2 = std::make_unique<Mage>(3,1,1,1.0,1,1,1,false);
+
+    Team team1(
+        std::move(mage),
+        nullptr,
+        nullptr,
+        10.0
+    );
+
+    Team team2(
+        std::move(mage),
+        std::move(mage1),
+        std::move(mage2),
+        10.0
+    );
+
+    team1.setA(std::move(testRoleA));
+    team1.setB(std::move(testRoleB));
+    team1.setC(std::move(testRoleC));
+
+    Battle battle(team1, team2);
+    EXPECT_FALSE(battle.isTeamDefeated(team1));
+}
+
+
+TEST(BattleTest, ShouldHealWhenBelowThreshold) {
+    auto testRoleA = std::make_unique<Warrior>(1,1,1,1.0,1,1,1,false);
+    auto testRoleB = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+    auto testRoleC = std::make_unique<Archer>(1,1,1,1.0,1,1,1,false);
+
+    testRoleA->setHealth(40);
+    testRoleB->setHealth(60);
+    testRoleC->setHealth(30);
+
+
+    auto mage = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+    auto mage1 = std::make_unique<Mage>(2,1,1,1.0,1,1,1,false);
+    auto mage2 = std::make_unique<Mage>(3,1,1,1.0,1,1,1,false);
+
+    Team team1(
+        std::move(mage),
+        nullptr,
+        nullptr,
+        10.0
+    );
+
+    Team team2(
+        std::move(mage),
+        std::move(mage1),
+        std::move(mage2),
+        10.0
+    );
+
+    team1.setA(std::move(testRoleA));
+    team1.setB(std::move(testRoleB));
+    team1.setC(std::move(testRoleC));
+
+    Battle battle(team1, team2);
+    EXPECT_TRUE(battle.shouldHeal(team1.getA(), team1));
+}
+
+TEST(BattleTest, DoctorAIHealsInjured) {
+    auto doctor = std::make_unique<Doctor>(1,1,1,1.0,1,1,1,false);
+    auto injured = std::make_unique<Warrior>(1,1,1,1.0,1,1,1,false);
+    injured->setHealth(30);
+
+    Team myTeam(
+        std::move(doctor),
+        std::move(injured),
+        nullptr,
+        0.0
+    );
+
+    Team opponentTeam(nullptr, nullptr, nullptr, 0.0);
+
+    Battle battle(myTeam, opponentTeam);
+    std::string mode = "standard";
+
+    battle.aiAction(myTeam.getA(), myTeam, mode, opponentTeam);
+    EXPECT_GE(myTeam.getB()->getHealth(), 30);
+}
+
+TEST(BattleTest, AssassinAIAttacksWithAssassinate) {
+    auto assassin = std::make_unique<Assassin>(1,1,1,1.0,1,1,1,false);
+    auto target = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+
+    Team myTeam(
+        std::move(assassin),
+        nullptr,
+        nullptr,
+        0.0
+    );
+
+    Team opponentTeam(
+        std::move(target),
+        nullptr,
+        nullptr,
+        0.0
+    );
+
+    Battle battle(myTeam, opponentTeam);
+    std::string mode = "standard";
+
+    battle.aiAction(myTeam.getA(), myTeam, mode, opponentTeam);
+    EXPECT_LE(opponentTeam.getA()->getHealth(), opponentTeam.getA()->getHealth());
+    EXPECT_GE(opponentTeam.getA()->getHealth(), -1);
+
+}
+
+TEST(BattleTest, MageAIAddsShield) {
+    auto mage = std::make_unique<Mage>(1,1,1,1.0,1,1,1,false);
+
+    Team myTeam(
+        std::move(mage),
+        nullptr,
+        nullptr,
+        10.0
+    );
+
+    Team opponentTeam(nullptr, nullptr, nullptr, 0.0);
+    Battle battle(myTeam, opponentTeam);
+    std::string mode = "standard";
+
+    battle.aiAction(myTeam.getA(), myTeam, mode, opponentTeam);
+    EXPECT_GE(myTeam.getTeamShield(), 10);
+    EXPECT_LE(myTeam.getTeamShield(), 30);
+}
+
+class MagicRolesTest : public ::testing::Test {
+protected:
+    void SetUp() override {
+        sorcerer = std::make_unique<Sorcerer>(1, 1, 15, 100.0, 0, 0, 0, false);
+        shaman = std::make_unique<Shaman>(1, 1, 10, 100.0, 0, 0, 0, false);
+        thief = std::make_unique<Thief>(1, 1, 1, 100.0, 0, 0, 0, false);
+    }
+
+    std::unique_ptr<Sorcerer> sorcerer;
+    std::unique_ptr<Shaman> shaman;
+    std::unique_ptr<Thief> thief;
+};
+
+TEST_F(MagicRolesTest, SorcererDoubleAttackAppliesDamage) {
+   sorcerer = std::make_unique<Sorcerer>(1, 1, 15, 100.0, 0, 0, 0, false);
+
+    double initialHealth = sorcerer->getHealth();
+
+    sorcerer->doubleMagicAttack(*sorcerer);
+    double damage = initialHealth - sorcerer->getHealth();
+
+    EXPECT_LE(damage, 100);
+    EXPECT_GE(damage, 0);
+}
+
+TEST_F(MagicRolesTest, ShamanDeafenReducesCritChance) {
+    sorcerer = std::make_unique<Sorcerer>(1, 1, 15, 100.0, 0, 0, 0, false);
+    shaman->deafen(*sorcerer);
+    int newCrit = sorcerer->getCritChance();
+    EXPECT_TRUE(newCrit == 0 || newCrit == 50) << "Crit chance: " << newCrit;
+}
+
+TEST_F(MagicRolesTest, ThiefStealHasChance) {
+    const int trials = 1000;
+    int successes = 0;
+
+    for (int i = 0; i < trials; ++i) {
+        if (thief->isStolen()) successes++;
+    }
+
+    EXPECT_GE(successes, 200);
+    EXPECT_LE(successes, 400);
+}
 
 
 

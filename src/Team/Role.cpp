@@ -185,6 +185,17 @@ double Role::basicIntAttack() const {
     return 0.02*(random_number+random_number1+random_number2)*this->getIntelligence();
 }
 
+void Role::basicFixedAttack(Role& A) const {
+    if (this->getStrength()> this->getIntelligence()) {
+        A.setHealth(A.getHealth()-(this->getStrength()-1)*10.4);
+        return;
+    }
+
+    A.setHealth(A.getHealth()-(this->getIntelligence()-1)*10.4);
+
+
+}
+
 void Role::healFromPoison(Role& A) const {
   if(A.getPoisonEffect()==true){
   if(A.getAmountOfHealingPotions()>0){

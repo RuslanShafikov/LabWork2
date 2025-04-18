@@ -90,13 +90,11 @@ std::pair<Team, Team> GameReloader::readFile(const std::string& filename) {
         throw std::runtime_error("Invalid file format. Expected 8 lines.");
     }
 
-    // Parse Team A (lines 0-2: roles, line 3: shield)
     auto a1 = createGameRole(lines[0]);
     auto a2 = createGameRole(lines[1]);
     auto a3 = createGameRole(lines[2]);
     double shieldA = std::stod(lines[3]);
 
-    // Parse Team B (lines 4-6: roles, line 7: shield)
     auto b1 = createGameRole(lines[4]);
     auto b2 = createGameRole(lines[5]);
     auto b3 = createGameRole(lines[6]);

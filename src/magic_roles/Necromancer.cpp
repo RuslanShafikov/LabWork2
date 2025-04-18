@@ -7,6 +7,7 @@
 void Necromancer::arise(Role& A) {
     if (A.getHealth()<=0) {
         A.setHealth(50);
+        std::cout<<"Your teammate arised"<<std::endl;
     }
 }
 

@@ -1,0 +1,8 @@
+Mage 5 5 7 54.4 10 0 0 f
+Mage 5 5 7 200 10 0 0 f
+Mage 5 5 7 200 10 0 0 f
+0
+Gladiator 5 6 5 137.6 10 0 0 f
+Sorcerer 5 5 6 137.6 10 0 0 f
+Assassin 6 5 5 137.6 10 0 0 f
+0

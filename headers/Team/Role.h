@@ -97,6 +97,9 @@ public:
     double basicIntAttack() const ;
 
     void giveExplosivePotion(Role& A);
+
+
+    void basicFixedAttack(Role& A) const;
 };
 
 #endif
