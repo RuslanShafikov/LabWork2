@@ -41,4 +41,4 @@ $(OBJ_TEST)/%.o: %.cpp
 clean:
 	rm -rf build main main_test
 
-	rm -f $(SOURCES:.cpp=.o)0
+	rm -f $(SOURCES:.cpp=.o)

@@ -378,3 +378,4 @@ TEST_F(MagicRolesTest, ThiefStealHasChance) {
 }
 
 
+
