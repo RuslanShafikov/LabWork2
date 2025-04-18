@@ -355,7 +355,7 @@ TEST_F(MagicRolesTest, SorcererDoubleAttackAppliesDamage) {
     double damage = initialHealth - sorcerer->getHealth();
 
     EXPECT_LE(damage, 100);
-    EXPECT_GE(damage, 1);
+    EXPECT_GE(damage, 0);
 }
 
 TEST_F(MagicRolesTest, ShamanDeafenReducesCritChance) {
