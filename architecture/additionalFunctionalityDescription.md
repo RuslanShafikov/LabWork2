@@ -8,8 +8,7 @@
 - **Purpose**: Provides deterministic damage calculations, removing reliance on random chance. Ideal for strategic planning.
 
 ### **Mechanics**
-- **Damage Formula**:
-- 
+- **Damage Formula**: maxAttackingCharacteristics-1 * 10.4
 - Example: A Mage with a max attack characteristic of 7 deals `(7-1) * 10.4 = 62.4` damage per attack.
 - **Key Changes**:
 - No random critical hits or variable damage rolls.
