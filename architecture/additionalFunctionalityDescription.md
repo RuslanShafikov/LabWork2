@@ -24,8 +24,7 @@
 ### **Ability: Shield**
 - **Mechanics**:
 - Generates a random shield value (1–20) and adds it to the **team-wide shield pool**.
-- At the end of each turn, alive team members heal by `teamShield / 2`.
-- Example: Two shields (15 + 8) = 23 total shield → each member heals `23 / 2 = 11.5` HP.
+- At the end of each turn, team members heal by renewed teamShield .
 - **Fixed Mode Interaction**:
 - Shield generation is still random, but distribution is deterministic.
 
@@ -46,10 +45,7 @@
 - Use shields early to offset predictable enemy damage.
 - Pair with a Warrior for high fixed damage.
 
-### **Necromancer + Tank**
-- Let a tank die intentionally, then revive them to stall enemies.
 
----
 
 ## **Version & Updated Files**
 - **Version**: 1.2.0
@@ -106,10 +102,6 @@
 - Use shields early to offset predictable enemy damage.
 - Pair with a Warrior for high fixed damage.
 
-### **Necromancer + Tank**
-- Let a tank die intentionally, then revive them to stall enemies.
-
----
 
 ## **Version & Updated Files**
 - **Version**: 1.2.0
